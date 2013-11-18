@@ -6,7 +6,8 @@ comments: true
 categories: []
 ---
 <i>Wolfram Mathematica</i> — это программное обеспечение, не только для математических вычислений, это гораздо больше: от моделирования и симуляции, визуализации, документации, до создания веб-сайтов. <i>Mathematica</i> обладает возможностью осуществлять вызовы функций и принимать вызовы с C, .NET, Java и других языков, генерировать C код, компилировать автономные библиотеки и исполняемые файлы. <br>
-Обо всех достоинствах <i>Mathematica</i> можно почитать на <a href="http://www.wolfram.com/mathematica/features/">официальном сайте</a> <img src="http://habrastorage.org/storage2/c72/991/4ca/c729914ca9c21661c5abd81052c6a10e.gif" alt="ru"><br>
+Обо всех достоинствах <i>Mathematica</i> можно почитать на <a href="http://www.wolfram.com/mathematica/features/">официальном сайте</a>
+<img src="/assets/math/star.png" class="center"><br>
 <br>
 Для начала работы с <i>Mathematica</i> вам необходимо её получить и установить на свой компьютер. <i>Mathematica</i> прекрасно работает на Windows, Mac, Linux. <br>
 Скачать и бесплатно попробовать <i>Mathematica</i> так же можно на <a href="http://www.wolfram.com/mathematica/trial/">оф. сайте</a>. <br>
@@ -24,28 +25,28 @@ categories: []
 <li>Другие ячейки – ячейки с текстом, заголовки и все остальное</li>
 </ul><br>
 <br>
-<img src="http://monosnap.com/image/DvL0y9Tatv0iau5lihDO3Rzsx.png"><br>
+<img src="/assets/math/types.png"><br>
 <br>
 Нумерация ячеек идёт в том порядке в котором вы их запустили. Для того что-бы вычислить значение ячейки нажмите SHIFT+ENTER или правый ENTER, либо Evaluation -&gt; Evaluate Cells.<br>
 <br>
 Для того что-бы обратиться к значению последней вычисленной ячейке используйте знак %.<br>
 <br>
-<img src="http://monosnap.com/image/c0xTMBxQcc8ojqxsH3OkZFoZb.png"><br>
+<img src="/assets/math/ref.png"><br>
 <br>
 <h4>Бесконечная точность</h4><br>
 Одной из замечательных особенностью <i>Mathematica</i> является концепция бесконечной точности. Если результатом вычислений является корень из двух, то она так и напишет. <br>
 <br>
-<img src="http://monosnap.com/image/SzhJE63WeWJjx68a8XYHbsi13.png"><br>
+<img src="/assets/math/inf.png"><br>
 <br>
 Вы можете попросить округлить ответ так:<br>
 <br>
-<img src="http://monosnap.com/image/J6uqwgrVIYC9IJLp75y8obsJH.png"><br>
+<img src="/assets/math/n.png"><br>
 <br>
 Или же добавить дробную часть (или просто точку) к числам в выражении: <br>
 <br>
-<img src="http://monosnap.com/image/gVhL8s1cQvcJt0VJXAZk4MvBy.png"><br>
+<img src="/assets/math/dot.png"><br>
 <br>
-<img src="http://monosnap.com/image/LBlFGCGHubx7SvQhXy3mE53gp.png" align="right"><br>
+<img src="/assets/math/pallet.png" align="right"><br>
 <h4>Ввод формул</h4><br>
 <br>
 В <i>Mathematica</i> реализован удобный ввод формул. Но для начала вам могут пригодится палитры (На картинке справа находится Palettes -&gt; Basic Math Assistant). <br>
@@ -72,7 +73,7 @@ categories: []
 Все что записано внутри ячеек является выражениями. Каждое выражение состоит из головы и списка. Например в выражение Power[2, 2]. В нём головой является Power, а списком 2, 2.<br>
 Даже 2+2 является выражением. Чтобы посмотреть как <i>Mathematica</i> интерпретирует ввод, есть функция FullForm:<br>
 <br>
-<img src="http://monosnap.com/image/PlRv3Qj6nADyO117OTJaO16Qf.png"> <br>
+<img src="/assets/math/fullform.png"> <br>
 <br>
 Функция Hold просит математику не вычислять выражение. Обратной функция является Evaluate.<br>
 <br>
@@ -80,21 +81,21 @@ categories: []
 <br>
 Для манипуляции со списками в <i>Mathematica</i> есть огромная куча функций. Всё что вам может когда-нибудь понадобиться уже есть там. Вам остаётся только найти нужную функцию. <br>
 <br>
-Для того чтобы получить элемент списка есть функция Part, c сокращённым вариантом в виде двойных квадратных скобок [[...]] либо с толстыми скобками <img src="http://monosnap.com/image/HiZXblqB1hVOE9Vsjo2A6gt2w.png"> (Esc [[ Esc).<br>
+Для того чтобы получить элемент списка есть функция Part, c сокращённым вариантом в виде двойных квадратных скобок [[...]] либо с толстыми скобками <img src="/assets/math/skobd.png"> (Esc [[ Esc).<br>
 <br>
 Поскольку всё является выражениями (и списки тоже), мы может получить голову выражения таким вот способом:<br>
 <br>
-<img src="http://monosnap.com/image/6yLofvD7DF2ka5GU5KT3xlv6U.png"><br>
+<img src="/assets/math/list.png"><br>
 <br>
 Таким образом индекс первого элемента в списке это 1. <br>
 <br>
 Так же есть возможность заменить голову любого выражения. Это делает функция Apply[head, expression]. Либо её сокращённый вариант @@.<br>
 <br>
-<img src="http://monosnap.com/image/lzHIVX8DzxMkviLiDDtTjACMY.png"><br>
+<img src="/assets/math/apply.png"><br>
 <br>
 В <i>Mathematica</i> есть несколько способов применить функции(головы) к выражениям. Это обычные квадратные скобки: f[x], префикс: f@x, постфикс: x // f<br>
 <br>
-<img src="http://monosnap.com/image/KAelhaqAkwvXb3sc6uhxOOrxU.png"><br>
+<img src="/assets/math/ways.png"><br>
 <br>
 А так же инфикс: из x ~ f ~ y получим f[x, y].<br>
 <br>
@@ -110,7 +111,7 @@ categories: []
 <br>
 Для динамических вычислений используются функции Dynamic, Manipulate и др. <br>
 <br>
-<img src="http://monosnap.com/image/jeZkf3skh4LMnbQNijPJvOLpl.png"><br>
+<img src="/assets/math/dyn.png"><br>
 <br>
 <h4>Заключение</h4><br>
 В статье я рассказал о основных аспектах работы в <i>Mathematica</i>. Есть также несколько других важных моментов, таких как паттерны, модули, ядра. О них я расскажу в следующий раз, если эта тема будет интересна вам.<br>
