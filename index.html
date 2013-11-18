@@ -15,6 +15,9 @@ title: Elfet
     <div class="content">
         {% if post.content contains "<!--more-->" %}
         {{ post.content | split:"<!--more-->" | first % }}
+        <div class="more">
+            <a class="btn btn-default btn-sm" href="{{ post.url }}">Далее…</a>
+        </div>
         {% else %}
         {{ post.content }}
         {% endif %}

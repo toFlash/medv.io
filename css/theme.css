@@ -32,6 +32,10 @@ article .comments {
     margin-bottom: 60px;
 }
 
+article .more {
+    margin-top: 20px;
+}
+
 footer {
     margin-top: 60px;
     margin-bottom: 60px;
