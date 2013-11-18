@@ -1,0 +1,67 @@
+---
+layout: post
+title: Карринг и Частичное применение функции в PHP
+date: 2012-05-16 10:43
+comments: true
+categories: []
+---
+<!--more-->
+Что такой карринг и частичное применение функции можно прочитать вот в этой <a
+        href="http://habrahabr.ru/post/143465/">статье</a>.<br>
+    <br>
+    Собственно вот реализация на PHP: <a href="https://github.com/Elfet/Functional">github.com/Elfet/Functional</a><br>
+    <br>
+    Пример использования частичного применения:<br>
+    <pre><code data-language="php">use Functional\Partial;
+
+function foo($a, $b, $c)
+{
+return &quot;foo&lt;$a, $b, $c&gt;\n&quot;;
+}
+
+$p = Partial::apply(&#039;foo&#039;, 1, 2);
+
+echo $p(3); // foo&lt;1, 2, 3&gt;</code></pre>    <br>
+    Так же можно использовать именованные параметры:<br>
+    <br>
+    <pre><code data-language="php">$p = Partial::applyNamed(&#039;foo&#039;, array(&#039;a&#039; =&gt; 1, &#039;c&#039; =&gt; 3));
+
+echo $p(2); // foo&lt;1, 2, 3&gt;</code></pre>    <br>
+    Можно задавать значения по умолчанию:<br>
+    <br>
+    <pre><code data-language="php">$p = Partial::apply(function ($a, $b, $c = &#039;c&#039;) {
+    return &quot;function()&lt;$a-$b-$c&gt;\n&quot;;
+}, 1);
+
+echo $p(2); // function()&lt;1-2-c&gt;</code></pre>    <br>
+    Или добавить параметры позже:<br>
+    <br>
+    <pre><code data-language="php">class Boo
+{
+    public function woo($a, $b, $c)
+    {
+        return &quot;Boo::woo&lt;$a, $b, $c&gt;\n&quot;;
+    }
+}
+
+$p = Partial::apply(array($boo, &#039;woo&#039;));
+$p-&gt;applyArgs(1, 2);
+$p-&gt;applyNamedArgs(array(&#039;b&#039; =&gt; 3));
+
+echo $p(); // Boo::woo&lt;1, 3, 2&gt;</code></pre>    <br>
+    Пример карринга:<br>
+    <br>
+    <pre><code data-language="php">use Functional\Curry;
+
+function foo($a, $b, $c)
+{
+    return &quot;foo&lt;$a, $b, $c&gt;\n&quot;;
+}
+
+$c = new Curry(&#039;foo&#039;);
+
+echo $c-&gt;invoke(1)-&gt;invoke(2)-&gt;invoke(3); // foo&lt;1, 2, 3&gt;</code></pre>    <br>
+    Или использовать сокращённый синтаксис:<br>
+    <br>
+    <pre><code data-language="php">echo $c[1][2][3]; // foo&lt;1, 2, 3&gt;</code></pre>    <br>
+    <br>

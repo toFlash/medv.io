@@ -1,0 +1,23 @@
+---
+layout: post
+title: Dot Notation для многомерных массивов
+date: 2013-02-05 15:04
+comments: true
+categories: []
+---
+Написал небольшой класс позволяющий обращаться к многомерным массивам через "точку":
+[cc lang="php"]
+$dn = new DotNotation(['bar' => ['baz' => ['foo' => true]]]);
+
+$value = $dn->get('bar.baz.foo'); 
+// Получение $value == true
+
+$dn->set('bar.baz.foo', false); 
+// Изменение ['foo'=>false]
+
+$dn->add('bar.baz', ['boo'=>true]); 
+// Добавление ['foo'=>false,'boo'=>true]
+[/cc]
+<!--more-->
+Исходник опубликован на Gist-е:
+[js src="https://gist.github.com/elfet/4713488.js"]

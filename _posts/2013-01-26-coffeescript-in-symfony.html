@@ -1,0 +1,82 @@
+---
+layout: post
+title: CoffeeScript в шаблонах Symfony
+date: 2013-01-26 16:35
+comments: true
+categories: []
+---
+В Symfony2 есть возможность подключать файлы с применением к ним фильтров:
+[cc lang="twig"]
+{&zwnj;% javascripts '/js/code.coffee' filter='coffee' %&zwnj;}
+    <script src="{{ asset_url }}"></script>
+{&zwnj;% endjavascripts %&zwnj;}
+[/cc]
+Но что если хочется вставить небольшой кусочек <strong>CoffeeScript </strong>кода прямо в шаблон, который был бы автоматически скомпилирован при компиляции шаблона? Я написал <a href="https://github.com/Elfet/CoffeeBundle">бандл для Symfony</a>, позволяющий использовать в шаблонах следующий код, который будет автоматически скомпилирован.
+[cc lang="coffee"]{&zwnj;% coffee %&zwnj;}
+    # Some coffee-script code
+    select 'home' if equal /^\/*$/i
+    select 'profile' if equal /^\/profile/i
+{&zwnj;% endcoffee %&zwnj;}[/cc]
+Данный кусочек кода будет скомпилирован один раз при компиляции шаблона.
+<!--more-->
+<h2>Установка</h2>
+Для установки бандла используйте Composer. Укажите в composer.json:
+[cc lang="javascript"]
+"require": { 
+    "elfet/coffee-bundle": "*"
+}
+[/cc]
+И выполните в консоли:
+[cc]$ composer update[/cc]
+Обновите AppKernel.php файл:
+[cc lang="php"]
+// in AppKernel::registerBundles()
+$bundles = array(
+    // ...
+    new Elfet\CoffeeBundle\ElfetCoffeeBundle(),
+);
+[/cc]
+Так же для работы бандля нужно что бы был сконфигурирован и корректно работал assetic модуль. У меня он сконфигурирован так:
+[cc]
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        ['ElfetSiteBundle', 'ElfetUserBundle']
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        coffee:
+            node:       /usr/local/bin/node
+            node_paths: [/usr/local/lib/node, /usr/local/lib/node_modules]
+            apply_to: "\.coffee$"
+[/cc]
+<h2>Использование</h2>
+Теперь в любом Twig шаблоне вы можите использовать тег <strong>coffee</strong> для вставки кода.
+[cc lang="coffee"]{&zwnj;% coffee %&zwnj;}
+    # Ваш Coffee скрипт здесь.
+{&zwnj;% endcoffee %&zwnj;}[/cc]
+<h3>Ограничения</h3>
+Внутри тега {&zwnj;% coffee %&zwnj;}<em>тут</em>{&zwnj;% endcoffee %&zwnj;} не должно быть больше никаких управляющих структур Twig. Например такой код не будет скомпилирован, а выбросит исключение:
+[cc lang="coffee"]
+{&zwnj;% set var = 'if true' %&zwnj;}
+{&zwnj;% coffee %&zwnj;}
+    alert 'hello world' {{var}}
+{&zwnj;% endcoffee %&zwnj;}
+[/cc]
+Так же как и такой:
+[cc lang="coffee"]
+{&zwnj;% coffee %&zwnj;}
+    {&zwnj;% if var %&zwnj;}
+         alert 'hello world'
+    {&zwnj;% else %&zwnj;}
+         alert 'world hello' 
+    {&zwnj;% endif %&zwnj;}
+{&zwnj;% endcoffee %&zwnj;}
+[/cc]
+Связано это с сложностью обработки такого кода и невозможностью скомпилировать некоторые куски такого кода.
+<h2>Ссылки</h2>
+<ul>
+	<li><a href="https://github.com/Elfet/CoffeeBundle" title="CoffeeBundle" target="_blank">CoffeeBundle</a></li>
+	<li><a href="http://symfony.com/doc/current/cookbook/assetic/index.html" target="_blank">The Cookbook Assetic</a></li>
+</ul>

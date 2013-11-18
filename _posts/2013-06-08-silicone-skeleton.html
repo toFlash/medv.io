@@ -1,0 +1,68 @@
+---
+layout: post
+title: Silicone Skeleton — настроенный Silex
+date: 2013-06-08 23:42
+comments: true
+categories: []
+---
+Если вы не один раз начинали новые проекты с использованием Silex, то вы знаете что каждый раз в начале нужно настроить его под себя: добавить провайдеры, переопределить некоторые сервисы, определить структуру каталогов, и т.д. Со временем у вас появляется базовый набор для Silex которые вы используете для создания нового проекта. <br>
+Но если у вас его нету, предлагаю вам ознакомиться с моим: <a href="https://github.com/elfet/silicone-skeleton">Silicone Skeleton</a>.<br>
+<!--more-->
+В Silicone Skeleton включены следующие компоненты:<br>
+<ul>
+<li>HttpCache — работает только в prod окружении.</li>
+<li>Class Controllers — вы можете размещать код контроллеров не только в функциях, но и в методах классов.</li>
+<li>Doctrine Common — вынесен отдельно т.к. используется в нескольких не зависимых провайдерах.</li>
+<li>Doctrine ORM — вы можете пользоваться полноценной ORM (а не только DBAL). Для работы были добавлены следующие команды:<br>
+<ol>
+<li>database:create</li>
+<li>database:drop</li>
+<li>schema:create</li>
+<li>schema:update</li>
+<li>schema:drop</li>
+</ol><br>
+</li>
+<li>Monolog — логи пишутся в app/open/log/log.txt</li>
+<li>Session</li>
+<li>Twig — шаблоны лежат в app/view/</li>
+<li>Translation — языковые файлы(yml, xliff) лежат в app/lang/[domain].[locale].yml</li>
+<li>Validators — добавлен недостающий валидатор UniqueEntityValidator для Doctrine Orm</li>
+<li>Forms</li>
+<li>Security — с регистрация и авторизацией пользователей</li>
+<li>Annotation Routes — можно использовать аннотации для роутов и ORM.</li>
+<li>Console — необходимые команды для ORM и очистки кэша.</li>
+</ul><br>
+<br>
+Структура каталогов очень близка с Symfony<br>
+<pre><code class="html brainfuck"><span class="comment">app/</span>
+    <span class="comment">config/</span>  <span class="literal">-</span><span class="literal">-</span> <span class="comment">Настройки</span>
+    <span class="comment">lang/</span>    <span class="literal">-</span><span class="literal">-</span> <span class="comment">Языковые</span> <span class="comment">файлы</span>
+    <span class="comment">open/</span>    <span class="literal">-</span><span class="literal">-</span> <span class="comment">Кэш</span>, <span class="comment">логи</span>
+    <span class="comment">src/</span>     <span class="literal">-</span><span class="literal">-</span> <span class="comment">Исходники</span>
+    <span class="comment">vendor/</span>  <span class="literal">-</span><span class="literal">-</span> <span class="comment">Вендоры</span>
+    <span class="comment">view/</span>    <span class="literal">-</span><span class="literal">-</span> <span class="comment">Шаблоны</span>
+    <span class="comment">console</span>  <span class="literal">-</span><span class="literal">-</span> <span class="comment">Консоль</span>
+<span class="comment">web/</span>
+    <span class="comment">index</span>.<span class="comment">php</span>
+</code></pre><br>
+<br>
+Вы можете использовать обычные Silex контроллеры: $app-&gt;get(...) вместе с такими контроллерами:<br>
+<pre><code class="php"><span class="class"><span class="keyword">class</span> <span class="title">Blog</span> <span class="keyword">extends</span> <span class="title">Controller</span>
+{</span>
+    <span class="comment">/**
+     *<span class="phpdoc"> @Route</span>("/blog/{post}")
+     */</span>
+    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">post</span><span class="params">(<span class="variable">$post</span>)</span>
+    {</span>
+        <span class="keyword">return</span> <span class="variable">$this</span>-&gt;render(<span class="string">'post.twig'</span>);
+    }
+}
+</code></pre><br>
+<br>
+Так же в Silicone Skeleton полностью настроен Security Provider. И контроллер входа и регистрации. <br>
+<br>
+Для установки используйте Composer:<br>
+<pre><code class="bash">composer create-project elfet/silicone-skeleton your/app/path
+</code></pre><br>
+<br>
+Все желающие помочь с развитием приветствуются! 

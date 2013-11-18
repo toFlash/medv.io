@@ -1,0 +1,19 @@
+---
+layout: post
+title: Проверка структуры JSON на CoffeeScript
+date: 2013-05-10 01:04
+comments: true
+categories: []
+---
+Возникла задача проверки приходящего JSON от клиента на node.js. Как вы делаете эти проверки? Я реализовал простую функцию:
+[cc lang="coffeescript"]
+json = 
+  key: 'value'
+  sub:
+    key: 'value'
+  extra: 'value'
+check = expect json, {key: yes, sub: {key: yes}}
+console.log check # true
+[/cc]
+
+<script src="https://gist.github.com/elfet/5550597.js"></script>
