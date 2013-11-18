@@ -7,7 +7,7 @@ categories: []
 ---
 Есть отличный бандл: <a href="https://github.com/igorw/IgorwFileServeBundle">IgorwFileServeBundle</a>
 Либо используйте BinaryFileResponse:
-[cc lang="php"]
+{% highlight php %}
 $response = new BinaryFileResponse($filePath);
 $response->trustXSendfileTypeHeader();
 $response->setContentDisposition(
@@ -17,4 +17,4 @@ $response->setContentDisposition(
 );
 
 return $response;
-[/cc]
+{% endhighlight %}

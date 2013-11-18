@@ -6,7 +6,7 @@ comments: true
 categories: []
 ---
 Возникла задача проверки приходящего JSON от клиента на node.js. Как вы делаете эти проверки? Я реализовал простую функцию:
-[cc lang="coffeescript"]
+{% highlight coffee-script %}
 json = 
   key: 'value'
   sub:
@@ -14,6 +14,6 @@ json =
   extra: 'value'
 check = expect json, {key: yes, sub: {key: yes}}
 console.log check # true
-[/cc]
+{% endhighlight %}
 
 <script src="https://gist.github.com/elfet/5550597.js"></script>

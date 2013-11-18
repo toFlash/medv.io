@@ -9,23 +9,23 @@ categories: []
 
 Установить можно через packagist.org: <a href="https://packagist.org/packages/granula/inversion" target="_blank">granula/inversion</a> либо <a href="https://github.com/granula/inversion/archive/master.zip">скачав</a> и добавив к PRS-0 совместимому загрузчику. 
 
-[cc lang="php"]
+{% highlight php %}
 $container = new Inversion\Container();
 $container['foo'] = 'My\Class\Foo';
 // ...
 $foo = $container('foo');
-[/cc]
+{% endhighlight %}
 <!--more-->
 В вышеприведённом примере показана базовая функциональность контейнера. Разберем что там происходит. 
 В первой строчки создаем экземпляр контейнера. Во второй создаем ассоциацию между "foo" и сервисом создающим экземпляр класса "My\Class\Foo". Что по другому можно записать так:
-[cc lang="php"]
+{% highlight php %}
 $container->addService(new Service('My\Class\Foo'), 'foo');
-[/cc]
+{% endhighlight %}
 <div class="alert alert-info">
 Имя "foo" идёт вторым, т.к. его вообще можно опустить. Подробнее ниже.
 </div>
 В третей строчке мы получаем экземпляр объекта. Что по другому можно записать так:
-[cc lang="php"]
+{% highlight php %}
 $foo = $container('foo');
 // или
 $foo = $container->get('foo');
@@ -33,7 +33,7 @@ $foo = $container->get('foo');
 $foo = $container['foo']->get();
 // или 
 $foo = $container->getService('foo')->get();
-[/cc]
+{% endhighlight %}
 <div class="alert alert-info">
 Однако, рекомендую использовать сокращённый вариант, хотя все они допустимы.
 </div>
@@ -44,7 +44,7 @@ $foo = $container->getService('foo')->get();
 Первое это отложенная загрузка. Пока вы не будите использовать его, класс не будет загружен.
 Второе, вы можете указать зависимость от других сервисов и параметров. Объясню на примере.
 Пусть у нас есть класс Bar, который зависит от классов One и Two:
-[cc lang="php"]
+{% highlight php %}
 namespace My\Space;
 class One {}
 class Two {}
@@ -54,23 +54,23 @@ class Bar
     {
     }
 }
-[/cc]
+{% endhighlight %}
 Опишем эту зависимость в Inversion:
-[cc lang="php"]
+{% highlight php %}
 use Inversion\Service;
 //...
 $container['one'] = 'My\Space\One';
 $container['two'] = 'My\Space\Two';
 $container['bar'] = new Service('My\Space\Bar', array($container['one'], $container['two']));
-[/cc]
+{% endhighlight %}
 Теперь при вызове "bar", они будут созданы и подставлены в конструктор. На самом деле можно ещё проще. Если вместо "one" и "two" указать их имена классов:
-[cc lang="php"]
+{% highlight php %}
 $container['My\Space\One'] = 'My\Space\One';
 $container['My\Space\Two'] = 'My\Space\Two';
 $container['My\Space\Bar'] = new Service('My\Space\Bar'); // "new Service" можно опустить 
-[/cc]
+{% endhighlight %}
 Это удобный способ описывать зависимости при использовании интерфейсов: 
-[cc lang="php"]
+{% highlight php %}
 namespace My\Space;
 class One implements OneInterface {}
 class Two implements TwoInterface  {}
@@ -80,19 +80,19 @@ class Bar implements BarInterface
     {
     }
 }
-[/cc]
+{% endhighlight %}
 
-[cc lang="php"]
+{% highlight php %}
 $container['My\Space\OneInterface'] = 'My\Space\One';
 $container['My\Space\TwoInterface'] = 'My\Space\Two';
 $container['My\Space\BarInterface'] = 'My\Space\Bar'; 
-[/cc]
+{% endhighlight %}
 Вообще имена интерфейсов, можно опустить. Они будут автоматически получены из классов:
-[cc lang="php"]
+{% highlight php %}
 $container[] = 'My\Space\One';
 $container[] = 'My\Space\Two';
 $container[] = 'My\Space\Bar'; 
-[/cc]
+{% endhighlight %}
 Вот так вот просто.
 <div class="alert alert-info">
 Однако, нужно понимать что в таком случае классы будут сразу же загружены чтобы получить список интерфейсов через рефлексию. Поэтому лучше указывать имя интерфейса вручную.
@@ -102,88 +102,88 @@ $container[] = 'My\Space\Bar';
 <h3>Closure</h3>
 Класс: <strong>Inversion\Service\Closure</strong>
 Использование:
-[cc lang="php"]
+{% highlight php %}
 $container['closure'] = function () use ($container) {
     return new My\Class();
 };
-[/cc]
+{% endhighlight %}
 Можно также указать зависимости:
-[cc lang="php"]
+{% highlight php %}
 $container['closure'] = function (One $foo, Two $foo) use ($container) {
     return new My\Class();
 };
-[/cc]
+{% endhighlight %}
 Так же как и с <strong>Inversion\Service</strong> можно указать их явно:
-[cc lang="php"]
+{% highlight php %}
 $container['closure'] = new Closure(function (One $foo, Two $foo) use ($container) {
     return new My\Class();
 }, array($container['one'], $container['two']));
-[/cc]
+{% endhighlight %}
 
 <h3>Factory</h3>
 Класс: <strong>Inversion\Service\Factory</strong>
 Использование:
-[cc lang="php"]
+{% highlight php %}
 $container['factory'] = new Factory('My\ClassFactory', 'create');
-[/cc]
+{% endhighlight %}
 Так же можно указать зависимости для конструктора явно третьим параметром.
 
 <h3>Object</h3>
 Класс: <strong>Inversion\Service\Object</strong>
 Использование:
-[cc lang="php"]
+{% highlight php %}
 $container['object'] = new My\Class();
-[/cc]
+{% endhighlight %}
 или
-[cc lang="php"]
+{% highlight php %}
 $container['object'] = new Object(new My\Class());
-[/cc]
+{% endhighlight %}
 
 <h3>Prototype</h3>
 Класс: <strong>Inversion\Service\Prototype</strong>
 Использование:
-[cc lang="php"]
+{% highlight php %}
 $container['prototype'] = new Prototype($object);
-[/cc]
+{% endhighlight %}
 При каждом вызове будет создана новая копия: clone $object.
 
 <h3>Data</h3>
 Класс: <strong>Inversion\Service\Data</strong>
 Использование:
-[cc lang="php"]
+{% highlight php %}
 $container['data'] = new Data('what you want');
-[/cc]
+{% endhighlight %}
 По умолчанию все массивы преобразуется в Data сервисы.
-[cc lang="php"]
+{% highlight php %}
 $container['data'] = array(...);
-[/cc]
+{% endhighlight %}
 Эквивалентно:
-[cc lang="php"]
+{% highlight php %}
 $container['data'] = new Data(array(...));
-[/cc]
+{% endhighlight %}
 <h2>Ссылки на сервисы</h2>
 Inversion поддерживает ссылки. Что бы получить ссылку обратитесь к контейнеру как к массиву:
-[cc lang="php"]
+{% highlight php %}
 $container['foo'] = new Service(...);
 
 $ref = $container['foo']; // Ссылка на сервис.
-[/cc]
+{% endhighlight %}
 Таким образом можно создать алиас к любому сервису:
-[cc lang="php"]
+{% highlight php %}
 $container['My\Class\FooInterface'] = new Service('My\Class\Foo');
 $container['foo'] = $container['My\Class\FooInterface']; 
 //...
 $foo = $container('foo');
-[/cc]
+{% endhighlight %}
 Теперь если кто-нибудь перезапишет "My\Class\FooInterface", то "foo" будет по прежнему ссылаться на этот сервис:
-[cc lang="php"]
+{% highlight php %}
 //...
 $container['My\Class\FooInterface'] = new Service('Another\FooImpl');
 //...
 $foo = $container('foo'); // $foo instanseof Another\FooImpl
-[/cc]
+{% endhighlight %}
 Можно даже создавать ссылки на ссылки:
-[cc lang="php"]
+{% highlight php %}
 $container['foo'] = 'My\Class\Foo';
 $container['ref'] = $container['foo']; 
 $container['ref2'] = $container['ref']; 
@@ -191,38 +191,38 @@ $container['ref3'] = $container['ref2'];
 //...
 $foo = $container('ref3'); // $foo instanseof My\Class\Foo
 $name = $container->getRealName('ref3'); // $name == 'foo'
-[/cc]
+{% endhighlight %}
 <h2>Расширение сервисов</h2>
 Например если мы хотим расширить какой-нибудь сервис, то такой способ не подойдет т.к. он перезапишет первый:
-[cc lang="php"]
+{% highlight php %}
 $container['My\Class\FooInterface'] = 'My\Class\Foo';
 //...
 $container['My\Class\FooInterface'] = function (FooInterface $foo) {
     $foo->extendSome(...);
     return $foo;
 };
-[/cc]
+{% endhighlight %}
 В результате будет зацикливание, что бы этого избежать, для расширения используйте следующую функцию:
-[cc lang="php"]
+{% highlight php %}
 $container['My\Class\FooInterface'] = 'My\Class\Foo';
 //...
 $container->extend('My\Class\FooInterface'], function (FooInterface $foo) {
     return new FooDecorator($foo);
 });
-[/cc]
+{% endhighlight %}
 <h2>Тесты</h2>
 Библиотека Inversion полностью тестирована. Тесты находятся в отдельном репозитории (<a href="https://github.com/granula/test" title="granula/test" target="_blank">granula/test</a>) вместе с другими тестами <a href="https://github.com/granula" target="_blank">гранулы</a>.
 
 <h2>Как Singleton</h2> 
 Inversion спроектирована полностью без использования статических методов и синглетонов, однако редко бывает полезно иметь контейнер как синглетон:
-[cc lang="php"]
+{% highlight php %}
 $container = Inversion\Container::getInstanse();
-[/cc]
+{% endhighlight %}
 
 <h2>Другие реализации</h2>
 <ul>
 	<li><a href="https://github.com/symfony/DependencyInjection">Symfony Dependency Injection</a> - мощная и тяжёлая библиотека внедрения зависимости. Имеет хорошую документацию.</li>
 	<li><a href="http://pimple.sensiolabs.org/">Pimple</a> - простой и очень лёгкий (всего один файл) "контейнер" от создателя Symfony. 
 </ul>
-
-
+<br>
+<br>

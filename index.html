@@ -1,11 +1,23 @@
 ---
 layout: default
-title: Anton Elfet Medvedev
+title: Elfet
 ---
 
-<h1>Blog Posts</h1>
-<ul class="posts">
-    {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+{% for post in site.posts %}
+<article>
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <div class="meta">
+        <span>
+            <i class="glyphicon glyphicon-calendar"></i>
+            {{ post.date | date_to_long_string }}
+        </span>
+    </div>
+    <div class="content">
+        {% if post.content contains "<!--more-->" %}
+        {{ post.content | split:"<!--more-->" | first % }}
+        {% else %}
+        {{ post.content }}
+        {% endif %}
+    </div>
+</article>
+{% endfor %}

@@ -1,3 +1,19 @@
-body {
-    padding-top: 50px;
+article {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+
+    margin: 60px;
+}
+
+article .meta {
+    margin-bottom: 20px;
+}
+
+article .meta span {
+    display: inline;
+    padding-right: 20px;
+    color: #999999;
+    font: 13px Helvetica, arial, freesans, clean, sans-serif;
+    line-height: 1.4;
 }

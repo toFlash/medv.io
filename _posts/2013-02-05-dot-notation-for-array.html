@@ -6,7 +6,7 @@ comments: true
 categories: []
 ---
 Написал небольшой класс позволяющий обращаться к многомерным массивам через "точку":
-[cc lang="php"]
+{% highlight php %}
 $dn = new DotNotation(['bar' => ['baz' => ['foo' => true]]]);
 
 $value = $dn->get('bar.baz.foo'); 
@@ -17,7 +17,7 @@ $dn->set('bar.baz.foo', false);
 
 $dn->add('bar.baz', ['boo'=>true]); 
 // Добавление ['foo'=>false,'boo'=>true]
-[/cc]
+{% endhighlight %}
 <!--more-->
 Исходник опубликован на Gist-е:
 [js src="https://gist.github.com/elfet/4713488.js"]
