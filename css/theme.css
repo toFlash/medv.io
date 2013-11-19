@@ -64,6 +64,9 @@ img.center {
 @media (max-width: 768px) {
     #orphus {
         opacity: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden;
     }
 }
 
