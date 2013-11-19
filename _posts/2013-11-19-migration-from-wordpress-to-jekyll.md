@@ -6,7 +6,7 @@ title: Переход от WordPress к Jekyll
 
 Как оказалось сделать это было достаточно просто (если бы не парочка новых багов в jekyll на данный момент). 
 
-https://github.com/elfet/elfet.github.io
+[elfet.github.io](https://github.com/elfet/elfet.github.io)
 
 Так же обновил дизайн блога на более простой и лаконичный. 
 <!--more-->
