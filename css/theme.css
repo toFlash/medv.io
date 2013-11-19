@@ -61,6 +61,12 @@ img.center {
     bottom: 30px;
 }
 
+@media (max-width: 768px) {
+    #orphus {
+        opacity: 0;
+    }
+}
+
 /**
  * Override
  */
