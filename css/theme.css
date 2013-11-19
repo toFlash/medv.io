@@ -54,6 +54,13 @@ img.center {
     margin-right: auto;
 }
 
+#orphus {
+    display: none;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
 /**
  * Override
  */
