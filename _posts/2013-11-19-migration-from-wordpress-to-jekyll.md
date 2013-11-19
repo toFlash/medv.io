@@ -12,4 +12,5 @@ published: true
 
 Так же обновил дизайн блога на более простой и лаконичный. 
 <!--more-->
-<a href="http://instacod.es/83363"><img src="http://instacod.es/file/83363" /></a>
+<img src="http://instacod.es/file/83363" class="center">
+А так же всем советую попробовать [prose.io](http://prose.io) - приложение для редактирования контента GitHub репозитория прямо в браузере, очень удобно для управления сайтом на GitHub Pages. 
