@@ -1,3 +1,4 @@
+baseurl: http://elfet.ru
 markdown: rdiscount
 pygments: true
 permalink: :title
