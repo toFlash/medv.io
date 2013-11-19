@@ -1,5 +1,5 @@
 baseurl: http://elfet.ru
 markdown: rdiscount
 pygments: true
-permalink: :title
+permalink: :title/
 excerpt_separator: ""
