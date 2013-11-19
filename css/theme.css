@@ -58,6 +58,41 @@ img.center {
  * Override
  */
 
+.navbar-default {
+    background-image: url("../img/saturn.jpg");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-color: #000;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .navbar-default {
+        background-position: right top !important;
+        background-size: auto 50px !important;
+    }
+}
+
+.navbar-default a {
+    color: #fff !important;
+}
+
+.navbar-default a:hover {
+    color: #b8b8b8 !important;
+}
+
+.navbar-default .navbar-brand {
+    max-height: 50px;
+    padding-top: 12px;
+    padding-left: 15px;
+    padding-bottom: 0;
+    padding-right: 0;
+}
+
+.navbar-brand img {
+    max-height: 30px;
+}
+
 .gist {
     font-size: 80%;
 }
