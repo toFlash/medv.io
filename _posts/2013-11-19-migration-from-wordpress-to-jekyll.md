@@ -12,9 +12,11 @@ published: true
 
 Самое сложное было перейти к использованию для подсветки кода `pygments`. Пришлось вручную заменить все теги на новые.
 
-	<?php
-    class Test {}
-    $to = 1;
+{% highlight php %}
+<?php
+class Test {}
+$to = 1;
+{% endhighlight %}
 
 Код моего блога доступен [тут](https://github.com/elfet/elfet.github.io).
 
