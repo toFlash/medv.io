@@ -86,7 +86,7 @@
          * Pretty print code.
          */
         $('pre').each(function () {
-            if (!$(this).parent().hasClass('highlight')) {
+            if (!$(this).parents().hasClass('highlight') && !$(this).parents().hasClass('gist')) {
                 $(this).addClass('prettyprint');
             }
         });
