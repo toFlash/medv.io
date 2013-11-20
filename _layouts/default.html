@@ -83,16 +83,6 @@
             $.cookie('visited', 'yes', { expires: 1 });
             $('#orphus').fadeIn("slow");
         }
-
-        /**
-         * Pretty print code.
-         */
-        $('pre').each(function () {
-            if (!$(this).parents().hasClass('highlight') && !$(this).parents().hasClass('gist')) {
-                $(this).addClass('prettyprint');
-            }
-        });
-        prettyPrint();
     });
 </script>
 
