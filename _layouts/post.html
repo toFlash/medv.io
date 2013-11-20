@@ -54,6 +54,9 @@ layout: default
             'title': ''
         },
         'linkFilter': function(link, layer) {
+            if(link.title === 'Elfet') {
+                return false;
+            }
             return true;
         }
     });
