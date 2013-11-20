@@ -112,3 +112,7 @@ img.center {
 .gist {
     font-size: 80%;
 }
+
+code {
+    color: rgb(68, 68, 68);
+}
