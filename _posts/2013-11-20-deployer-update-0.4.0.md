@@ -35,8 +35,6 @@ published: true
     });
 
 Данные функции пока тестируются и недоступны в phar архиве с сайта, но вы можете сами создать phar архив из `master` ветки репозитория выполнив `bin/build`.  
-
-<!-- lang: erlang -->
     
     parse_record({attribute, _, record, RecordInfo}) ->
         {RecordName, RecordFields} = RecordInfo,
