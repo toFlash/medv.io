@@ -35,3 +35,27 @@ published: true
     });
 
 Данные функции пока тестируются и недоступны в phar архиве с сайта, но вы можете сами создать phar архив из `master` ветки репозитория выполнив `bin/build`.  
+
+<!-- lang: erlang -->
+    
+    parse_record({attribute, _, record, RecordInfo}) ->
+        {RecordName, RecordFields} = RecordInfo,
+        if
+    	length(RecordFields) == 1 ->
+    	    lists:flatten([ generate_setter_getter_function(RecordName, X) || X <- RecordFields ]
+    		  ++ [generate_type_function(RecordName)]);
+    	true ->
+    	    lists:flatten([generate_fields_function(RecordName, RecordFields)]
+    			  ++ [generate_fields_atom_function(RecordName, RecordFields)]
+    			  ++ [ generate_setter_getter_function(RecordName, X) || X <- RecordFields ]
+    		  ++ [generate_type_function(RecordName)])
+        end;
+    parse_record(_) -> [].
+     
+    parse_field_name({record_field, _, {atom, _, FieldName}}) ->
+        {field, "\"" ++ atom_to_list(FieldName) ++ "\""};
+    parse_field_name({record_field, _, {atom, _, _FieldName}, {record, _, ParentRecordName, _}}) ->
+    	{parent_field, "fields(" ++ atom_to_list(ParentRecordName) ++ ")"};
+    parse_field_name({record_field, _, {atom, _, FieldName}, _}) ->
+        {field, "\"" ++ atom_to_list(FieldName) ++ "\""}.
+     
