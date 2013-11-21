@@ -23,7 +23,7 @@ published: true
 
     task('everythere', 'Deploy everythere', ['connect', 'upload']);
     
-Теперь выполнив `php deploy everythere` можно загрузить код на все сервера. По умолчанию, функции `cd`, `run`, `upload` выполняются на всем серверах. 
+Теперь выполнив `php deploy everythere` можно загрузить код на все сервера. По умолчанию, функции `cd`, `run`, `upload` выполняются на всех серверах. 
 
 <!--more-->
 
