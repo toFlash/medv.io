@@ -23,7 +23,7 @@ published: true
 
     task('everythere', 'Deploy everythere', ['connect', 'upload']);
     
-Теперь выполнив `php deploy everythere` можно загрузить код на все сервера.
+Теперь выполнив `php deploy everythere` можно загрузить код на все сервера. По умолчанию, функции `cd`, `run`, `upload` выполняются на всем серверах. 
 
 <!--more-->
 
@@ -34,4 +34,4 @@ published: true
     	run('command'); // This command will be executed only on test servers.
     });
 
-Данные функции пока тестируются и недоступны в phar архиве с сайта, но вы можете сами создать phar архив из `master` ветки репозитория выполнив `bin/build`.  
+Данные функции пока тестируются и недоступны в phar архиве с сайта, но вы можете сами создать phar архив из `master` ветки репозитория выполнив `bin/build`.
