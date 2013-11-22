@@ -4,11 +4,11 @@ title: Переход от WordPress к Jekyll
 published: true
 ---
 
+<img src="http://instacod.es/file/83363" class="left" style="max-width: 200px;">
+
 Решил обновить свой блог и перейти от использования WordPress к [Jekyll](http://jekyllrb.com/). 
 
 Как оказалось сделать это было достаточно просто (если бы не парочка новых багов в jekyll на данный момент). Для переноса постов есть куча импортеров (я воспользовался каким-то написанным на C#). 
-
-<img src="http://instacod.es/file/83363" class="right" style="max-width: 200px;">
 
 Самое сложное было перейти к использованию для подсветки кода `pygments`. Пришлось вручную заменить все теги на новые.
 
