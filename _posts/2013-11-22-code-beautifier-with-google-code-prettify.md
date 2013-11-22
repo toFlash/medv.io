@@ -3,12 +3,12 @@ layout: post
 title: Подсветка кода с Google Code Prettify
 ---
 Для потсветки кода на [StackOverflow](http://stackoverflow.com) используется библиотека [Google Code Prettify](https://code.google.com/p/google-code-prettify/). 
-Но она не будет работать точно так же как на StackOverflow. Вы не можете указать комментарий с кодом для уточнения: `<!-- language: lang -->` - работать не будет. 
+Но у вас она не будет работать точно так же как на StackOverflow. Вы не можете указать комментарий с кодом для уточнения языка: `<!-- language: lang -->` - работать не будет. 
 Для того что бы библиотека заработала нужно у тега `pre` указать классы `class="prettyprint lang-scm"`. 
 
 Однако это не удобно если вы используете Markdown. 
 
-    <!-- lang: bf -->
+    <!-- lang: code -->
     
         you code goes here
 
