@@ -55,6 +55,10 @@ img.center {
     margin-right: auto;
 }
 
+img.left {
+    float: left;
+}
+
 #orphus {
     display: none;
     position: fixed;
