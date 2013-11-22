@@ -8,7 +8,7 @@ title: Подсветка кода с Google Code Prettify
 
 Однако это не удобно если вы используете Markdown. 
 
-    <!-- lang: -->
+    <!-- lang: bf -->
     
         you code goes here
 
