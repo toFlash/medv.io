@@ -87,18 +87,12 @@ img.right {
  */
 
 .navbar-default {
-    background-image: url("../img/saturn.jpg");
+    background-image: url("../img/popka.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: right center;
     background-color: #000;
     color: #fff;
-}
-
-@media (max-width: 768px) {
-    .navbar-default {
-        background-position: right top !important;
-        background-size: auto 50px !important;
-    }
 }
 
 .navbar-default a {
