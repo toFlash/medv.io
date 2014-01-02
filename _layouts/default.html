@@ -51,26 +51,32 @@
     {{ content }}
 
     <footer>
-        <p class="pull-right">
-            <a href="https://twitter.com/antonmedv" class="twitter-follow-button" data-show-count="false"
-               data-lang="ru">Читать @antonmedv</a>
-            <script>!function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = p + '://platform.twitter.com/widgets.js';
-                    fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, 'script', 'twitter-wjs');</script>
-            <a href="http://feeds.feedburner.com/elfet">
-                <img src="/img/rss/small.png" alt="rss">
-            </a>
-        </p>
-        <small>
-            <a href="/creative-commons.html"><img src="/img/cc.png" alt="cc"></a>
-            Elfet 2007 - {{ site.time | date: '%Y' }}
-        </small>
+        <div class="row">
+            <div class="col-xs-4 text-left">
+                <small>
+                    <a href="/creative-commons.html"><img src="/img/cc.png" alt="cc"></a>
+                    Elfet 2007 - {{ site.time | date: '%Y' }}
+                </small>
+            </div>
+            <div class="col-xs-4 text-center">
+                <a href="https://twitter.com/antonmedv" class="twitter-follow-button" data-show-count="false"
+                   data-lang="ru">Читать @antonmedv</a>
+                <script>!function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');</script>
+            </div>
+            <div class="col-xs-4 text-right">
+                <a href="http://feeds.feedburner.com/elfet">
+                    <img src="/img/rss/small.png" alt="rss">
+                </a>
+            </div>
+        </div>
     </footer>
 </div>
 
