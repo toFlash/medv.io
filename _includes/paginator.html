@@ -1,0 +1,14 @@
+{% if paginator.total_pages > 1 %}
+<div class="pages">
+    {% if paginator.next_page %}
+        <a class="btn btn-default" href="/page{{ paginator.next_page }}/">&laquo; Старые</a>
+    {% endif %}
+
+    <span class="page_number">Страница {{ paginator.page }} из {{ paginator.total_pages }}</span>
+
+    {% if paginator.previous_page %}
+        <a class="btn btn-default pull-right" href="/">Новые &raquo;</a>
+    {% endif %}
+</div>
+<div class="clearfix"></div>
+{% endif %}

@@ -3,3 +3,4 @@ markdown: rdiscount
 pygments: true
 permalink: :title/
 excerpt_separator: ""
+paginate: 10
