@@ -229,7 +229,7 @@ $websocket = new WsServer($sessionProvide);
 //...
 ```
 
-Теперь создадим класс Server. Для работы с Ratchet мы должны имплементировать MessageComponentInterface интерфейс.
+Теперь создадим класс [Server](https://github.com/elfet/chat/blob/master/src/Server.php). Для работы с Ratchet мы должны имплементировать MessageComponentInterface интерфейс.
 
 <!-- lang: php -->
 ```
