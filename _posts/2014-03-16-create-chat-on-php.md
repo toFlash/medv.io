@@ -343,7 +343,7 @@ $(function () {
     scroll();
 });
 ```
-<img src="/assets/create-chat-on-php/login.png" class="pull-right">
+<img src="/assets/create-chat-on-php/mobile.png" style="float:right">
 
 Полностью готовый чат вы можете скачать [тут](https://github.com/elfet/chat). Он немного отличается от этого: в нём реализованны дополнительные функции:
 
