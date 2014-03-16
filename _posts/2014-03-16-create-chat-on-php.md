@@ -294,12 +294,12 @@ php server.php
 Создадим файл chat.phtml в котором опишем структуру нашего чата, подключим библиотеки: jQuery и Handlebars (будем использовать для шаблона сообщения).
 
 ```
-<script id="message" type="text/x-handlebars-template">
+<sсript id="message" type="text/x-handlebars-template">
     <div class="message">
         <a class="user" href="{{user.profile_url}}"><img src="{{user.pic_square}}" title="{{user.name}}"></a>
         <div class="text">{{text}}</div>
     </div>
-</script>
+</sсript>
 ```
 
 Так же подключим [client.js](https://github.com/elfet/chat/blob/master/js/client.js).
