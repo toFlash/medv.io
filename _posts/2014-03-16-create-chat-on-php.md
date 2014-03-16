@@ -45,8 +45,8 @@ PHP имеет встроенный сервер, который отлично 
 
 ### Приложение
 
-Начнем с инициализации. Выполните комманду `composer init` в терминале. Composer задаст вам несколько вопросов, после чего сгенерирует
-файл `composer.json` в котором и будут описыватся наши зависимости.
+Начнем с инициализации. Выполните команду `composer init` в терминале. Composer задаст вам несколько вопросов, после чего сгенерирует
+файл `composer.json` в котором и будут описываться наши зависимости.
 Так же нам понадобятся следующие компоненты:
 
 ```
@@ -114,7 +114,7 @@ class Application extends \Silex\Application
 ### Аутентификация
 
 Для входа в чат мы не будем создавать никаких специальных форм и баз пользователей. Воспользуемся аутентификацией через
-Facebook. Для этого вам нужно зарегестировать свое приложение на [developers.facebook.com](https://developers.facebook.com)
+Facebook. Для этого вам нужно зарегистировать свое приложение на [developers.facebook.com](https://developers.facebook.com)
 и получить `app_id` и `secret`.
 
 <img src="/assets/create-chat-on-php/login.png" class="center">
@@ -144,7 +144,7 @@ $app['facebook'] = $app->share(function () use ($app) {
 // Включаем механизм сессия Silex
 $app->register(new SessionServiceProvider());
 
-// Перепопереляем способ сохранения сессии в memcached
+// Переопределяем способ сохранения сессии в memcached
 $app['session.storage.handler'] = $app->share(function ($app) {
     $memcache = new \Memcache();
     $memcache->connect('localhost', 11211);
@@ -178,13 +178,13 @@ $app->before(function ($request) use ($app) {
             'query' => 'SELECT uid, name, pic_square, profile_url FROM user WHERE uid = me()',
         ));
 
-        // Если Facebook вернул нам данные о пользователе запишим их в сессию.
+        // Если Facebook вернул нам данные о пользователе запишем их в сессию.
         if (!empty($result)) {
             $app['session']->set('user', $result[0]);
             return;
         }
 
-        // Иначе выводим страницу с кномпой входа.
+        // Иначе выводим страницу с кнопкой входа.
         return $app->render('login.phtml', [
             'loginUrl' => $facebook->getLoginUrl(),
         ]);
@@ -213,7 +213,7 @@ $server = IoServer::factory($http, 8080, '127.0.0.1');
 $server->run();
 ```
 
-Ratchet предостовляет удобный механизм для исползования Symfony Session Component.
+Ratchet предоставляет удобный механизм для использования Symfony Session Component.
 
 <!-- lang: php -->
 ```
@@ -285,7 +285,7 @@ class Server implements MessageComponentInterface
     }
 ```
 
-Теперь мы можем запустить нашего демона коммандой:
+Теперь мы можем запустить нашего демона командой:
 
 ```
 php server.php
@@ -347,7 +347,7 @@ $(function () {
 
 Код полностью готово чата выложен на GitHub: [elfet/chat](https://github.com/elfet/chat).
 
-Он немного отличается от этого: в нём реализованны дополнительные функции:
+Он немного отличается от этого: в нём реализованы дополнительные функции:
 
 * Хранение истории сообщений
 * Вставка изображений
