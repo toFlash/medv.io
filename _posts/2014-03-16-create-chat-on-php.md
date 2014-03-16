@@ -362,8 +362,7 @@ $(function () {
 
 ### Ссылки
 
-* Silex
-* ReactPHP
-* Ratchet
-* jQuery
-* Handlebars
+* [Silex](http://silex.sensiolabs.org/)
+* [ReactPHP](http://reactphp.org/)
+* [Ratchet](http://socketo.me/)
+* [Handlebars](http://handlebarsjs.com/)
