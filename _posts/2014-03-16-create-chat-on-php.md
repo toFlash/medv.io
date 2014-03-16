@@ -63,7 +63,7 @@ composer require silex/silex:1.2.* facebook/php-sdk:3.2.* cboden/ratchet:0.3.*
 ```
 и выполните `composer update`.
 
-В файле `app.php` подключите файл `autoload.php` сгенерированный composer-ом:
+В файле [app.php](https://github.com/elfet/chat/blob/master/app.php) подключите файл `autoload.php` сгенерированный composer-ом:
 
 
 <!-- lang: php -->
@@ -87,8 +87,8 @@ $app->run();
 ```
 
 Создаём экземпляр нашего приложения и передаём в него массив с настройками нашего приложения (Оператор include возвращает то что возвращает файл при помощи оператора return).
-При помощи функции `$app->get()` описываем то что вернёт приложение при обращении к адресу `/`. Мы вернём код клиента чата `chat.phtml`.
-Мы не будем использовать никаких шаблонизаторов. Вместо этого мы создадим следующий метод `$app->render()`.
+При помощи функции `$app->get()` описываем то что вернёт приложение при обращении к адресу `/`. Мы вернём код клиента чата [chat.phtml](https://github.com/elfet/chat/blob/master/view/chat.phtml).
+Мы не будем использовать никаких шаблонизаторов. Вместо этого мы создадим следующий метод `$app->render()`. Файл [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php).
 
 <!-- lang: php -->
 ```
@@ -193,7 +193,7 @@ $app->before(function ($request) use ($app) {
 
 ### Демон
 
-Создадим файл `server.php` и инициализируем в нём Event Loop:
+Создадим файл [server.php](https://github.com/elfet/chat/blob/master/server.php) и инициализируем в нём Event Loop:
 
 <!-- lang: php -->
 ```
@@ -302,7 +302,7 @@ php server.php
 </script>
 ```
 
-Так же подключим client.js
+Так же подключим [client.js](https://github.com/elfet/chat/blob/master/js/client.js).
 
 <!-- lang: js -->
 ```
@@ -351,7 +351,7 @@ $(function () {
 });
 ```
 
-Полностью готовый чат вы можете скачать тут. Он немного отличается от этого. В нём реализованны дополнительные функции:
+Полностью готовый чат вы можете скачать [тут](https://github.com/elfet/chat). Он немного отличается от этого: в нём реализованны дополнительные функции:
 
 * Хранение истории сообщений
 * Вставка изображений
