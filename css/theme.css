@@ -34,7 +34,7 @@ article .comments {
 
 article .more {
     margin-top: 20px;
-    text-align: right;
+    text-align: left;
 }
 
 footer {
@@ -80,6 +80,13 @@ img.right {
         height: 0;
         overflow: hidden;
     }
+}
+
+.info {
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #5bc0de;
+    background-color: #f4f8fa;
 }
 
 /**
