@@ -126,6 +126,11 @@ img.right {
     font-size: 80%;
 }
 
+pre {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 code {
     color: rgb(68, 68, 68);
     background-color: rgb(233, 233, 233);
