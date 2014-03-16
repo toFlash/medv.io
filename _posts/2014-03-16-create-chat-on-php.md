@@ -71,7 +71,7 @@ composer require silex/silex:1.2.* facebook/php-sdk:3.2.* cboden/ratchet:0.3.*
 require __DIR__ . '/../vendor/autoload.php';
 ```
 
-Создадим класс нашего приложения src/Application.php и добавим в `app.php` следующее:
+Создадим класс нашего приложения [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php) и добавим в `app.php` следующее:
 
 <!-- lang: php -->
 ```
@@ -88,7 +88,7 @@ $app->run();
 
 Создаём экземпляр нашего приложения и передаём в него массив с настройками нашего приложения (Оператор include возвращает то что возвращает файл при помощи оператора return).
 При помощи функции `$app->get()` описываем то что вернёт приложение при обращении к адресу `/`. Мы вернём код клиента чата [chat.phtml](https://github.com/elfet/chat/blob/master/view/chat.phtml).
-Мы не будем использовать никаких шаблонизаторов. Вместо этого мы создадим следующий метод `$app->render()`. Файл [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php).
+Мы не будем использовать никаких шаблонизаторов. Вместо этого мы создадим следующий метод `$app->render()`. Файл [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php):
 
 <!-- lang: php -->
 ```
