@@ -136,12 +136,12 @@ $app['facebook'] = $app->share(function () use ($app) {
 });
 ```
 
-Информацию о пользователе мы будем хранить в сессии, так как эту же сессию мы будем использовать в демоне мы будем хранить
-её в [Memcached](http://memcached.org/).
+Информацию о пользователе мы будем хранить в сессии, так как эту же сессию мы будем использовать в демоне,
+то саму суссию будем хранить в [Memcached](http://memcached.org/).
 
 <!-- lang: php -->
 ```
-// Включаем механизм сессия Silex
+// Включаем механизм сессий Silex
 $app->register(new SessionServiceProvider());
 
 // Переопределяем способ сохранения сессии в memcached
@@ -168,7 +168,7 @@ $app['user'] = function () use ($app) {
 $app->before(function ($request) use ($app) {
     $user = $app['user'];
 
-    // Если пользователья нет, по проводим запрашиваем данные о нем из Facebook.
+    // Если пользователья нет, то запрашиваем данные о нем из Facebook.
     if (null === $user) {
         $facebook = $app['facebook'];
 
