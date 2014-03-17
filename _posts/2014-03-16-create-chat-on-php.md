@@ -53,7 +53,7 @@ PHP имеет встроенный сервер, который отлично 
 composer require silex/silex:1.2.* facebook/php-sdk:3.2.* cboden/ratchet:0.3.*
 ```
 
-Все PHP файлы демона и приложения мы будем хранить в папке `src`. Настроим автозагрузку по `PSR-4`.
+Все PHP файлы демона и приложения мы будем хранить в папке `src`. Настроим автозагрузку по [PSR-4](https://github.com/php-fig/fig-standards/blob/master/proposed/psr-4-autoloader/psr-4-autoloader.md).
 В файле `composer.json` добавьте следующее:
 
 ```
@@ -70,14 +70,14 @@ composer require silex/silex:1.2.* facebook/php-sdk:3.2.* cboden/ratchet:0.3.*
 
 <!-- lang: php -->
 ```
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 ```
 
 Создадим класс нашего приложения [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php) и добавим в `app.php` следующее:
 
 <!-- lang: php -->
 ```
-$app = new Elfet\Chat\Application(include __DIR__ . '/../config.php');
+$app = new Elfet\Chat\Application(include __DIR__ . '/config.php');
 
 $app->get('/', function () use ($app) {
     return $app->render('chat.phtml', [
@@ -213,7 +213,7 @@ $server = IoServer::factory($http, 8080, '127.0.0.1');
 $server->run();
 ```
 
-Ratchet предоставляет удобный механизм для использования Symfony Session Component.
+Ratchet предоставляет удобный механизм для использования сессий Symfony.
 
 <!-- lang: php -->
 ```
@@ -221,7 +221,7 @@ $memcache = new Memcache;
 $memcache->connect('localhost', 11211);
 $sesionHandler = new MemcacheSessionHandler($memcache);
 
-// Наш код чата будет содержится в классе Server.
+// Код нашего чата содержится в классе Server.
 $chat = new Server();
 
 $sessionProvider = new SessionProvider($server, $sessionHandler);
