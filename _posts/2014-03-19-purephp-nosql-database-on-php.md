@@ -74,13 +74,9 @@ $wow = $pure->stack('collection')->pop(); // Вернёт 'wow!'
 <div class="info">
 Для доступа к коллекциям можно воспользоваться магичискими методами:
 <!-- lang: php -->
-<pre>
-<code>
-$pure->of->collection->push();
+<pre><code>$pure->of->collection->push();
 $pure->stack->collection->pop();
-//...
-</code>
-</pre>
+//...</code></pre>
 </div>
 
 Так же у всех хранилищь реализована особая функция `filter`. Она позволяет отобрать только нужные элементы:
