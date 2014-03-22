@@ -21,7 +21,7 @@ title: Правильное сравнение PHP фреймворков
 
 <img src="/assets/php-framework-comparison/plot.png" class="center">
 
-На графике отображено изменение отношения цикломатической сложности к количеству методов всех релизов соответствующих фреймворков.
+На графике отображено изменение отношения цикломатической сложности к количеству методов для всех релизов соответствующих фреймворков.
 Для подчсета цикломатической сложности воспользовался замечательной библиотекой Себастьяна Бергмана
 [phploc](https://github.com/sebastianbergmann/phploc).
 
@@ -30,5 +30,5 @@ title: Правильное сравнение PHP фреймворков
 ### Ссылки
 
 * [PHP Mess Detector](http://phpmd.org/)
-* Презентация [Development by the numbers by Anthony Ferrara](http://www.slideshare.net/ircmaxell/development-by-the-numbers)
+* [Development by the numbers by Anthony Ferrara](http://www.slideshare.net/ircmaxell/development-by-the-numbers)
 * [How Not To Kill Your Testability Using Statics](http://kunststube.net/static/)
