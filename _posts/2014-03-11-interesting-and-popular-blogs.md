@@ -8,3 +8,4 @@ title: Интересные и популярные блоги для PHP раз
 * [Igor Wiedler](https://igor.io/)
 * [Marc J. Schmidt](http://marcjschmidt.de/)
 * [Braincrafted](http://braincrafted.com/)
+* [Kunststube](http://kunststube.net/)
