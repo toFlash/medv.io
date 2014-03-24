@@ -8,18 +8,18 @@ layout: nil
     <link href="{{ site.baseurl }}/atom.xml" rel="self"/>
     <link href="{{ site.baseurl }}"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>{{ site.baseurl }}</id>
+    <id>{{ site.baseurl }}/</id>
     <author>
         <name>Anton Medvedev</name>
         <email>anton@elfet.ru</email>
     </author>
 
-    {% for post in site.posts %}
+    {% for post in site.posts limit:20 %}
     <entry>
         <title>{{ post.title }}</title>
         <link href="{{ site.baseurl }}{{ post.url }}"/>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
-        <id>{{ post.id }}</id>
+        <id>{{ site.baseurl }}{{ post.url }}</id>
         <content type="html">{{ post.content | replace: 'src="/assets', 'src="http://elfet.ru/assets' |xml_escape }}</content>
     </entry>
     {% endfor %}
