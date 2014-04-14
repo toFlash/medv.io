@@ -40,7 +40,7 @@ composer require elfet/pure:0.*
 $pure = new Pure\Client($port, $host);
 ```
 
-В PurePHP реализовано несколько видов хранилищь данных. Все они расположены в папке [src/Storage](https://github.com/elfet/purephp/tree/master/src/Storage).
+В PurePHP реализовано несколько видов хранилищ данных. Все они расположены в папке [src/Storage](https://github.com/elfet/purephp/tree/master/src/Storage).
 На клиенте вы можете работать с ними так, как будто бы вы работаете с ними напрямую. Для создания экземпляра хранилища используйте соответствующую функцию. 
 
 Примеры:
@@ -79,7 +79,7 @@ $pure->stack->collection->pop();
 //...</code></pre>
 </div>
 
-Так же у всех хранилищь реализована особая функция `filter`. Она позволяет отобрать только нужные элементы:
+Так же у всех хранилищ реализована особая функция `filter`. Она позволяет отобрать только нужные элементы:
 <!-- lang: php -->
 ```
 $result = $pure->queue('collection')->filter('value > 100');
