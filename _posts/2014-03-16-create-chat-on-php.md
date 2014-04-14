@@ -137,7 +137,7 @@ $app['facebook'] = $app->share(function () use ($app) {
 ```
 
 Информацию о пользователе мы будем хранить в сессии, так как эту же сессию мы будем использовать в демоне,
-то саму суссию будем хранить в [Memcached](http://memcached.org/).
+то саму сессию будем хранить в [Memcached](http://memcached.org/).
 
 <!-- lang: php -->
 ```
@@ -152,7 +152,7 @@ $app['session.storage.handler'] = $app->share(function ($app) {
 });
 ```
 
-Для получения пользователя из сессии создадми следующую функцию.
+Для получения пользователя из сессии создадим следующую функцию.
 
 <!-- lang: php -->
 ```
@@ -345,7 +345,7 @@ $(function () {
 ```
 <img src="/assets/create-chat-on-php/mobile.png" style="float:right">
 
-Код полностью готово чата выложен на GitHub: [elfet/chat](https://github.com/elfet/chat).
+Код полностью готового чата выложен на GitHub: [elfet/chat](https://github.com/elfet/chat).
 
 Он немного отличается от этого: в нём реализованы дополнительные функции:
 
