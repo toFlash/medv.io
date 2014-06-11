@@ -119,11 +119,13 @@ Facebook. Для этого вам нужно зарегистировать с�
 
 <img src="/assets/create-chat-on-php/login.png" class="center">
 
-Подключите Facebook PHP-SDK (например в конструкторе [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php)):
+Подключите Facebook PHP-SDK:
 
 ```
 composer require facebook/php-sdk:3.2.*
 ```
+
+Далее в конструкторе [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php):
 
 <!-- lang: php -->
 ```
