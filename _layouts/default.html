@@ -1,89 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>{{ page.title }}</title>
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Блог о программировании на PHP, Symfony, Silex, Doctrine, Deployer, WebCrypt.">
     <meta name="author" content="Anton Medvedev">
     <link rel="shortcut icon" href="/favicon.png">
     <link type="application/atom+xml" rel="alternate" href="/atom.xml">
 
-    <title>{{ page.title }}</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/lemonade.css" rel="stylesheet">
     <link href="/css/syntax.css" rel="stylesheet">
     <link href="/lib/google-code-prettify/prettify.css" rel="stylesheet">
 </head>
-
 <body>
 
+<nav>
+    <div class="container">
+        <a href="/"><img class="logo" src="/img/logo.png" alt="Elfet"></a>
+        <a href="/">Блог</a>
+        <a href="/contacts.html">Контакты</a>
+    </div>
+</nav>
+
 <div class="container">
-    <header>
-
-        <nav class="navbar navbar-default" role="navigation" {% if page.background %}style="background-image: url('{{ page.background }}');"{% endif %}>
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Elfet"></a>
-
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Блог</a></li>
-                    <li><a href="/contacts.html">Контакты</a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-
-    </header>
 
     {{ content }}
 
     <footer>
-        <div class="row">
-            <div class="col-xs-4 text-left">
-                <small>
-                    <a href="/creative-commons.html"><img src="/img/cc.png" alt="cc"></a>
-                    Elfet 2007 - {{ site.time | date: '%Y' }}
-                </small>
-            </div>
-            <div class="col-xs-4 text-center">
-                <a href="https://twitter.com/antonmedv" class="twitter-follow-button" data-show-count="false"
-                   data-lang="ru">Читать @antonmedv</a>
-                <script>!function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + '://platform.twitter.com/widgets.js';
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, 'script', 'twitter-wjs');</script>
-            </div>
-            <div class="col-xs-4 text-right">
-                <a href="http://feeds.feedburner.com/elfet">
-                    <img src="/img/rss/small.png" alt="rss">
-                </a>
-            </div>
-        </div>
+        <a href="/creative-commons.html"><img src="/img/cc.png" alt="cc"></a> Elfet 2007 - {{ site.time | date: '%Y' }}
+
+        <a href="http://feeds.feedburner.com/elfet"><img src="/img/rss/small.png" alt="rss"></a>
+
+        <a href="https://twitter.com/antonmedv" class="twitter-follow-button" data-show-count="false"
+           data-lang="ru">Читать @antonmedv</a>
+        <script>!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + '://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'twitter-wjs');</script>
     </footer>
 </div>
 
 <script src="/lib/jquery.min.js"></script>
 <script src="/lib/jquery.cookie.js"></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="/lib/google-code-prettify/prettify.js"></script>
 <script src="/lib/prettify.js"></script>
@@ -92,6 +57,7 @@
 <a href="http://orphus.ru" id="orphus" target="_blank">
     <img alt="Система Orphus" src="/lib/orphus/orphus.gif" border="0" width="125" height="115"/>
 </a>
+
 <script>
     $(function () {
         /**
@@ -101,11 +67,6 @@
             $.cookie('visited', 'yes', { expires: 1 });
             $('#orphus').fadeIn("slow");
         }
-
-        /**
-         * Make images responsive.
-         */
-        $('article img').addClass('img-responsive');
     });
 </script>
 
@@ -124,7 +85,6 @@
 
     ga('create', 'UA-33445714-1', 'elfet.ru');
     ga('send', 'pageview');
-
 </script>
 </body>
 </html>
