@@ -15,7 +15,9 @@ date: 2012-11-13 10:10
 Давайте представим, что мы хотим сделать библиотеку для управления пользователями на сайте. Первое что нам понадобится, это место где мы будем хранить информацию о наших пользователях.
 
 Опишем интерфейс хранилища:
-{% highlight php %}
+
+
+~~~ php
 <?php
 interface StorageInterface
 {
@@ -24,11 +26,14 @@ interface StorageInterface
     public function save();
     public function load();
 }
-{% endhighlight %}
+~~~
+
 Отлично, теперь нам нужна реализация этого интерфейса. Для начала будем хранить информацию в файлах. Создадим класс FileStorage.
 
 <b>FileStorage.php</b>
-{% highlight php %}
+
+
+~~~ php
 <?php
 class FileStorage implements StorageInterface
 {
@@ -54,34 +59,55 @@ class FileStorage implements StorageInterface
     {
     	$this->data = json_decode(file_get_contents($this->file));
     }
-}{% endhighlight %}
+}
+~~~
+
+
 Теперь создадим класс пользователя
-{% highlight php %}
+
+
+~~~ php
 <?php
 class User
 {
     public function __construct(StorageInterface $storage)
     {
     }
-}{% endhighlight %}
+}
+~~~
+
 Теперь чтобы создать экземпляр класса User:
-{% highlight php %}
+
+
+~~~ php
 <?php
-$user = new User(new FileStorage());{% endhighlight %}
+$user = new User(new FileStorage());
+~~~
+
 Отлично, а что если какой-нибудь другой программист захочет вместо файлов использовать базу данных? Для этого ему нужно создать класс DatabaseStorage, реализовать интерфейс StorageInterface и заменить все вхождения FileStorage. Но изменение библиотеки сулит проблемы с её обновлениями.
 
 Что бы этого избежать, давайте, введём опции:
-{% highlight php %}
+
+
+~~~ php
 <?php
 $options = array(
     'StorageInterface' => 'FileStorage',
 );
 
-$user = new User($option['StorageInterface']);{% endhighlight %}
+$user = new User($option['StorageInterface']);
+~~~
+
+
 Теперь что бы заменить FileStorage на DatabaseStorage, нужно всего лишь указать это в опциях:
-{% highlight php %}
+
+
+~~~ php
 <?php
-$options['StorageInterface'] = 'DatabaseStorage';{% endhighlight %}
+$options['StorageInterface'] = 'DatabaseStorage';
+~~~
+
+
 То, что мы сейчас назвали опциями, на самом деле является контейнером IoC.
 
 Именно такая архитектура позволяет строить наиболее гибкие приложения и библиотеки.
@@ -94,7 +120,9 @@ $options['StorageInterface'] = 'DatabaseStorage';{% endhighlight %}
 <a href="http://symfony.com/components">Symfony Components</a> можно создать MVC приложение на подобии самой Symfony.
 
 Каждый модуль гранулы должен быть описан своим классом:
-{% highlight php %}
+
+
+~~~ php
 <?php
 use Granula\Module;
 use Inversion\Container;
@@ -105,19 +133,34 @@ class MyModule extends Module
     {
         // Опишите свой модуль здесь.
     }
-}{% endhighlight %}
+}
+~~~
+
+
 Например, описание библиотеки, которую мы создавали в начале статьи будет таким:
-{% highlight php %}
+
+
+~~~ php
 <?php
-$container['StorageInterface'] = 'FileStorage';{% endhighlight %}
+$container['StorageInterface'] = 'FileStorage';
+~~~
+
+
 Можно даже сократить ещё больше:
-{% highlight php %}
+
+
+~~~ php
 <?php
-$container[] = 'FileStorage';{% endhighlight %}
+$container[] = 'FileStorage';
+~~~
+
+
 Но в таком случае не будет работать ленивая загрузка классов, так как FileStorage будет загружен <a href="https://github.com/granula/inversion">Inversion</a>(библиотекой IoC контейнеров) сразу для определения его интерфейсов.
 
 Пример описания модуля для <b>Symfony Routing Component</b>
-{% highlight php %}
+
+
+~~~ php
 <?php
 $container['request']
     = $container['Symfony\Component\HttpFoundation\Request']
@@ -141,17 +184,32 @@ $container['request.context']
 
 $container['router']
     = $container['Symfony\Component\Routing\RouterInterface']
-    = new Factory('Granula\Router\RouterFactory');{% endhighlight %}
+    = new Factory('Granula\Router\RouterFactory');
+~~~
+
+
 Теперь можно создавать экземпляры как в Symfony при помощи контейнера:
-{% highlight php %}
+
+
+~~~ php
 <?php
-$object = $container->get('Class');{% endhighlight %}
+$object = $container->get('Class');
+~~~
+
+
 Либо при момощи фабрики (при использовании trait):
-{% highlight php %}
+
+
+~~~ php
 <?php
-$user = User::create();{% endhighlight %}
+$user = User::create();
+~~~
+
+
 Затем все необходимые модули указываются в Front Controller:
-{% highlight php %}
+
+
+~~~ php
 <?php
 class App extends Granula\App
 {
@@ -162,12 +220,20 @@ class App extends Granula\App
             // Список модулей
         );
     }
-}{% endhighlight %}
+}
+~~~
+
+
 И в файле index.php запускаются:
-{% highlight php %}
+
+
+~~~ php
 <?php
 $app = new App();
-$app->run();{% endhighlight %}
+$app->run();
+~~~
+
+
 Я оформил все необходимые модули для создания полноценного MVC приложения. Что бы поиграться с ним используйте <a href="http://getcomposer.org/">Composer</a> для установки:
 <pre>composer create-project granula/app www</pre>
 В него включены:

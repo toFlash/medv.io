@@ -8,8 +8,7 @@ title: Flyspeck &mdash; простой DI на JavaScript
 
 Пример использования:
 
-<!-- lang: js -->
-```
+~~~ javascript
 // Создаём контейнер.
 var c = new Flyspeck();
 
@@ -47,5 +46,5 @@ c.extend('app', function (app, c) {
 
 // Получаем все сразу.
 var app = c.get('app');
-```
+~~~
 <!--more-->

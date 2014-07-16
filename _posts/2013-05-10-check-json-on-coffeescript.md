@@ -4,7 +4,8 @@ title: Проверка структуры JSON на CoffeeScript
 date: 2013-05-10 01:04
 ---
 Возникла задача проверки приходящего JSON от клиента на node.js. Как вы делаете эти проверки? Я реализовал простую функцию:
-{% highlight coffee-script %}
+
+~~~ coffee
 json = 
   key: 'value'
   sub:
@@ -12,6 +13,8 @@ json =
   extra: 'value'
 check = expect json, {key: yes, sub: {key: yes}}
 console.log check # true
-{% endhighlight %}
+~~~
+
+
 <!--more-->
 <script src="https://gist.github.com/elfet/5550597.js"></script>

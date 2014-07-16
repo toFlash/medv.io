@@ -49,7 +49,9 @@ web/
 <br>
 <br>
 Вы можете использовать обычные Silex контроллеры: $app-&gt;get(...) вместе с такими контроллерами:<br>
-{% highlight php %}
+
+
+~~~ php
 <?php
 class Blog extends Controller
 {
@@ -61,7 +63,8 @@ class Blog extends Controller
         return $this->render('post.twig');
 }
 }
-{% endhighlight %}
+~~~
+
 <br>
 <br>
 Так же в Silicone Skeleton полностью настроен Security Provider. И контроллер входа и регистрации. <br>

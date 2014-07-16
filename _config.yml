@@ -1,6 +1,4 @@
 baseurl: http://elfet.ru
-markdown: rdiscount
-pygments: true
+markdown: kramdown
 permalink: :title/
-excerpt_separator: ""
 paginate: 10

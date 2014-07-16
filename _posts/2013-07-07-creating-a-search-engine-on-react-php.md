@@ -18,23 +18,31 @@ comments_id: 248 http://elfet.ru/?p=248
 <h3>Демон</h3>
 Наш демон будет написан на <a href="http://reactphp.org/" target="_blank">React PHP</a>. Для этого нужно понимать как он работает.
 В основу этого фреймворнка положен <a href="http://en.wikipedia.org/wiki/Event_loop" target="_blank">event loop</a>. C него и начнём.
-{% highlight php %}
+
+
+~~~ php
 <?php
 $loop = React\EventLoop\Factory::create();
 // наш код идёт тут
 $loop->run();
-{% endhighlight %}
+~~~
+
 ReactPHP идёт вместе с набором замечательных компонентов. Среди них <a href="https://github.com/reactphp/react/tree/master/src/React/HttpClient" target="_blank">HttpClient</a>, которым мы воспользуемся для параллельной загрузки страниц. Для его работы нам нужен DNS ресолвер, который будет преобразовывать доменные имена в IP адреса. Воспользуемся <a href="http://ru.wikipedia.org/wiki/Google_Public_DNS" target="_blank">Google Public DNS</a> (ip: 8.8.8.8)
-{% highlight php %}
+
+
+~~~ php
 <?php
 $dnsResolverFactory = new React\Dns\Resolver\Factory();
 $dnsResolver = $dnsResolverFactory->createCached('8.8.8.8', $loop);
 
 $factory = new React\HttpClient\Factory();
 $client = $factory->create($loop, $dnsResolver);
-{% endhighlight %}
+~~~
+
 Теперь создадим класс для загрузки страниц <a href="https://github.com/elfet/homer/blob/master/src/Homer/Loader.php" target="_blank">Loader</a>. А в нём метод для загрузки url:
-{% highlight php %}
+
+
+~~~ php
 <?php
     public function load($url, $deep)
     {
@@ -62,34 +70,46 @@ $client = $factory->create($loop, $dnsResolver);
 
         return true;
     }
-{% endhighlight %}
+~~~
+
 Теперь создадим в цикле $loop переодический таймер, который будет вызываться с определённой интенсивностью.
-{% highlight php %}
+
+
+~~~ php
 <?php
 $loop->addPeriodicTimer(1, function ($timer) use ($client) {
     $loader = new Loader($client);
     $loader->load($url, $deep);
 });
-{% endhighlight %}
+~~~
+
 Однако у нас неоткуда взять $url и $deep переменные. Для их получения сделаем простую очередь сообщений <a href="https://github.com/elfet/homer/blob/master/src/Homer/Queue.php" target="_blank">Queue</a>. Либо можно использовать какую-нибудь <a href="http://gearman.org/" target="_blank">готовую</a>.
-{% highlight php %}
+
+
+~~~ php
 <?php
     while ($row = $queue->pop()) {
         $loader = new Homer\Loader($client);
         $loader->load($row['url'], $row['deep']);
     }
-{% endhighlight %}
+~~~
+
 Теперь опишем метод onResponse где будем получать данные из Response класса. По событию data приходит часть ответа сервера, можно самому собрать все кусочки воедино, однако в React PHP есть способ получше. Это promise и <a href="https://github.com/reactphp/react/blob/master/src/React/Stream/BufferedSink.php" target="_blank">BufferedSink</a>.
-{% highlight php %}
+
+
+~~~ php
 <?php
     public function onResponse(React\HttpClient\Response $response)
     {
         $this->response = $response;
         BufferedSink::createPromise($response)->then(array($this, 'onLoad'));
     }
-{% endhighlight %}
+~~~
+
 Теперь в onLoad методе мы получим весь ответ сервера, когда он будет полностью загружен. В onLoad методе для разбора полученого кода страницы будем использовать <a href="http://symfony.com/doc/current/components/dom_crawler.html" target="_blank">DomCrawler</a> и все найденные ссылки будем добавлять в очередь для последующей загрузки.
-{% highlight php %}
+
+
+~~~ php
 <?php
     public function onLoad($body)
     {
@@ -119,19 +139,25 @@ $loop->addPeriodicTimer(1, function ($timer) use ($client) {
             });
         }
     }
-{% endhighlight %}
+~~~
+
 Реализацию класса <a href="https://github.com/elfet/homer/blob/master/src/Homer/Search.php" target="_blank">Search</a> пока оставим самую простую, ищем теги title и body и добавляем их в базу данных для полнотекстового поиска.
 
 <h3>FrontEnd</h3>
 Фронтенд мы реализуем на Silex. Создадим файл index.php
-{% highlight php %}
+
+
+~~~ php
 <?php
 $app = new Silex\Application();
 // наш код идёт тут.
 $app->run();
-{% endhighlight %}
+~~~
+
 У нашего фронтенда будет две функции: поиск по базе данных и добавление новых ссылок в очередь.
-{% highlight php %}
+
+
+~~~ php
 <?php
 $app->get('/', function () use ($app) {
     $search = $app['request']->get('search', false);
@@ -143,9 +169,12 @@ $app->get('/', function () use ($app) {
     include 'view/index.phtml';
     return ob_get_clean();
 })->bind('search');
-{% endhighlight %}
+~~~
+
 В файле <a href="https://github.com/elfet/homer/blob/master/view/index.phtml" target="_blank">index.phtml</a> мы создадим форму для поиска и форму для добавления ссылок, это всё что нам нужно.
-{% highlight php %}
+
+
+~~~ php
 <?php
 $app->post('/add', function () use ($app) {
     $url = filter_var($app['request']->get('url', ''), FILTER_VALIDATE_URL);
@@ -155,7 +184,8 @@ $app->post('/add', function () use ($app) {
     }
     return $app->redirect($app->url('search'));
 })->bind('add');
-{% endhighlight %}
+~~~
+
 
 Так же я сделал статистику по использованию памяти демоном. Пример:
 <img src="/assets/react-stat.png" width="527" height="238" class="center">

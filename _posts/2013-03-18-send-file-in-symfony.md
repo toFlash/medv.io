@@ -5,7 +5,9 @@ date: 2013-03-18 00:24
 ---
 Есть отличный бандл: <a href="https://github.com/igorw/IgorwFileServeBundle">IgorwFileServeBundle</a>
 Либо используйте BinaryFileResponse:
-{% highlight php %}
+
+
+~~~ php
 <?php     
 $response = new BinaryFileResponse($filePath);
 $response->trustXSendfileTypeHeader();
@@ -16,4 +18,5 @@ $response->setContentDisposition(
 );
 
 return $response;
-{% endhighlight %}
+~~~
+

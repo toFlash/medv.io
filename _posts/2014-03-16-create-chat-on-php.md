@@ -30,13 +30,13 @@ PHP имеет встроенный сервер, который отлично 
 то его нужно сконфигурировать так, что бы он перенаправлял все запросы к нашему скрипту.
 Это можно сделать при помощи файла `.htaccess`:
 
-```
+~~~
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ app.php [QSA,L]
 </IfModule>
-```
+~~~
 
 Как настроить другие серверы (в том числе и встроенный в PHP) можно почитать [тут](http://silex.sensiolabs.org/doc/web_servers.html).
 
@@ -49,34 +49,34 @@ PHP имеет встроенный сервер, который отлично 
 файл `composer.json` в котором и будут описываться наши зависимости.
 Так же нам понадобятся следующие компоненты:
 
-```
+~~~
 composer require silex/silex:1.2.* facebook/php-sdk:3.2.* cboden/ratchet:0.3.*
-```
+~~~
 
 Все PHP файлы демона и приложения мы будем хранить в папке `src`. Настроим автозагрузку по [PSR-4](https://github.com/php-fig/fig-standards/blob/master/proposed/psr-4-autoloader/psr-4-autoloader.md).
 В файле `composer.json` добавьте следующее:
 
-```
+~~~
     "autoload": {
         "psr-4": {
             "Elfet\\Chat\\": "src/"
         }
     }
-```
+~~~
 и выполните `composer update`.
 
 В файле [app.php](https://github.com/elfet/chat/blob/master/app.php) подключите файл `autoload.php` сгенерированный composer-ом:
 
 
-<!-- lang: php -->
-```
+
+~~~ php
 require __DIR__ . '/vendor/autoload.php';
-```
+~~~
 
 Создадим класс нашего приложения [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php) и добавим в `app.php` следующее:
 
-<!-- lang: php -->
-```
+
+~~~ php
 $app = new Elfet\Chat\Application(include __DIR__ . '/config.php');
 
 $app->get('/', function () use ($app) {
@@ -86,14 +86,14 @@ $app->get('/', function () use ($app) {
 })->bind('index');
 
 $app->run();
-```
+~~~
 
 Создаём экземпляр нашего приложения и передаём в него массив с настройками нашего приложения (Оператор include возвращает то что возвращает файл при помощи оператора return. Файл [config.php](https://github.com/elfet/chat/blob/master/config.dist.php)).
 При помощи функции `$app->get()` описываем то что вернёт приложение при обращении к адресу `/`. Мы вернём код клиента чата [chat.phtml](https://github.com/elfet/chat/blob/master/view/chat.phtml).
 Мы не будем использовать никаких шаблонизаторов. Вместо этого мы создадим следующий метод `$app->render()`. Файл [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php):
 
-<!-- lang: php -->
-```
+
+~~~ php
 class Application extends \Silex\Application
 {
     public function render($viewPath, $params = [])
@@ -107,7 +107,7 @@ class Application extends \Silex\Application
         return new Response($content);
     }
 }
-```
+~~~
 Метод принимает путь к файлу и параметры. Файл будет подключен и результат его работы будет передан в экземпляре класса `Response`.
 
 
@@ -121,14 +121,14 @@ Facebook. Для этого вам нужно зарегистировать с�
 
 Подключите Facebook PHP-SDK:
 
-```
+~~~
 composer require facebook/php-sdk:3.2.*
-```
+~~~
 
 Далее в конструкторе [Application.php](https://github.com/elfet/chat/blob/master/src/Application.php):
 
-<!-- lang: php -->
-```
+
+~~~ php
 $app['facebook'] = $app->share(function () use ($app) {
     return new \Facebook([
         'appId' => 'Facebook app_id',
@@ -136,13 +136,13 @@ $app['facebook'] = $app->share(function () use ($app) {
         'allowSignedRequest' => false
     ]);
 });
-```
+~~~
 
 Информацию о пользователе мы будем хранить в сессии, так как эту же сессию мы будем использовать в демоне,
 то саму сессию будем хранить в [Memcached](http://memcached.org/).
 
-<!-- lang: php -->
-```
+
+~~~ php
 // Включаем механизм сессий Silex
 $app->register(new SessionServiceProvider());
 
@@ -152,21 +152,21 @@ $app['session.storage.handler'] = $app->share(function ($app) {
     $memcache->connect('localhost', 11211);
     return new MemcacheSessionHandler($memcache);
 });
-```
+~~~
 
 Для получения пользователя из сессии создадим следующую функцию.
 
-<!-- lang: php -->
-```
+
+~~~ php
 $app['user'] = function () use ($app) {
     return $app['session']->get('user');
 };
-```
+~~~
 
 Мы будем проверять авторизацию перед каждым запросом от браузера к нашему приложению
 
-<!-- lang: php -->
-```
+
+~~~ php
 $app->before(function ($request) use ($app) {
     $user = $app['user'];
 
@@ -192,33 +192,33 @@ $app->before(function ($request) use ($app) {
         ]);
     }
 });
-```
+~~~
 Теперь при обращении к любому пути `$app->get('/', ...)` будет проверена авторизация.
 
 ### Демон
 
 Создадим файл [server.php](https://github.com/elfet/chat/blob/master/server.php) и инициализируем в нём Event Loop:
 
-<!-- lang: php -->
-```
+
+~~~ php
 $server = IoServer::factory(..., 8080, '127.0.0.1');
 $server->run();
-```
+~~~
 
 Так же нам нужен Http Server и WebSocket Server:
 
-<!-- lang: php -->
-```
+
+~~~ php
 $websocket = new WsServer(...);
 $http = new HttpServer($websocket);
 $server = IoServer::factory($http, 8080, '127.0.0.1');
 $server->run();
-```
+~~~
 
 Ratchet предоставляет удобный механизм для использования сессий Symfony.
 
-<!-- lang: php -->
-```
+
+~~~ php
 $memcache = new Memcache;
 $memcache->connect('localhost', 11211);
 $sesionHandler = new MemcacheSessionHandler($memcache);
@@ -229,12 +229,12 @@ $chat = new Server();
 $sessionProvider = new SessionProvider($server, $sessionHandler);
 $websocket = new WsServer($sessionProvide);
 //...
-```
+~~~
 
 Теперь создадим класс [Server](https://github.com/elfet/chat/blob/master/src/Server.php). Для работы с Ratchet мы должны имплементировать MessageComponentInterface интерфейс.
 
-<!-- lang: php -->
-```
+
+~~~ php
 class Server implements MessageComponentInterface
 {
     private $clients;
@@ -246,34 +246,34 @@ class Server implements MessageComponentInterface
 
     //...
 }
-```
+~~~
 
 При подключении пользователя получаем информацию о пользователе из сессии и заносим пользователя в список подключенных клиентов.
 
-<!-- lang: php -->
-```
+
+~~~ php
     public function onOpen(ConnectionInterface $conn)
     {
         $user = $conn->Session->get('user');
         $conn->user = $user;
         $this->clients->attach($conn);
     }
-```
+~~~
 
 При отключении пользователя удаляем его из списка клиентов:
 
-<!-- lang: php -->
-```
+
+~~~ php
     public function onClose(ConnectionInterface $conn)
     {
         $this->clients->detach($conn);
     }
-```
+~~~
 
 При получении сообщения от одного клиента рассылаем его всем.
 
-<!-- lang: php -->
-```
+
+~~~ php
     public function onMessage(ConnectionInterface $from, $message)
     {
         $message = [
@@ -285,13 +285,13 @@ class Server implements MessageComponentInterface
             $client->send(json_encode([$message]));
         }
     }
-```
+~~~
 
 Теперь мы можем запустить нашего демона командой:
 
-```
+~~~
 php server.php
-```
+~~~
 
 ### Клиент
 
@@ -300,7 +300,7 @@ php server.php
 Так же подключим [client.js](https://github.com/elfet/chat/blob/master/js/client.js).
 
 <!-- lang: js -->
-```
+~~~
 var conn, text, template;
 
 function connect(server, port) {
@@ -344,7 +344,7 @@ $(function () {
     });
     scroll();
 });
-```
+~~~
 <img src="/assets/create-chat-on-php/mobile.png" style="float:right">
 
 Код полностью готового чата выложен на GitHub: [elfet/chat](https://github.com/elfet/chat).
