@@ -16,11 +16,11 @@ layout: nil
 
     {% for post in site.posts limit:20 %}
     <entry>
-        <title>{{ post.title }}</title>
+        <title>{{ post.title | xml_escape }}</title>
         <link href="{{ site.baseurl }}{{ post.url }}"/>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
         <id>{{ site.baseurl }}{{ post.url }}</id>
-        <content type="html">{{ post.content | replace: 'src="/assets', 'src="http://elfet.ru/assets' |xml_escape }}</content>
+        <content type="html">{{ post.content | replace: 'src="/assets', 'src="http://elfet.ru/assets' | xml_escape }}</content>
     </entry>
     {% endfor %}
 
