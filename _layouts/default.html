@@ -2,49 +2,72 @@
 <html>
 <head>
     <title>{{ page.title }}</title>
-
     <meta charset="utf-8">
     <meta name="description" content="Блог о программировании на PHP, Symfony, Silex, Doctrine, Deployer, WebCrypt.">
     <meta name="author" content="Anton Medvedev">
     <link rel="shortcut icon" href="/favicon.png">
     <link type="application/atom+xml" rel="alternate" href="/atom.xml">
-
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/theme.css">
-    <link rel="stylesheet" href="/css/lemonade.css">
+    <link rel="stylesheet" href="/css/extra.css">
     <link rel="stylesheet" href="/lib/prism/prism.css">
 </head>
 <body>
 
-<nav>
+<header>
     <div class="container">
-        <a href="/"><img class="logo" src="/img/logo.png" alt="Elfet"></a>
-        <a href="/">Блог</a>
-        <a href="/contacts.html">Контакты</a>
+        <nav class="navbar navbar-inverse" role="navigation" {% if page.background %}style="background-image: url('{{ page.background }}');"{% endif %}>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/"><img src="/img/logo.png"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Блог</a></li>
+                        <li><a href="/contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-</nav>
+</header>
 
-<div class="container">
+<section>
+    <div class="container">
+        {{ content }}
+    </div>
+</section>
 
-    {{ content }}
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="/creative-commons.html"><img src="/img/cc.png" alt="cc"></a>
+                Elfet 2007 - {{ site.time | date: '%Y' }}
+            </div>
 
-    <footer>
-        <a href="/creative-commons.html"><img src="/img/cc.png" alt="cc"></a> Elfet 2007 - {{ site.time | date: '%Y' }}
+            <div class="col-md-4 text-center">
+                <a href="https://twitter.com/antonmedv" class="twitter-follow-button" data-show-count="false"
+                   data-lang="ru">Читать @antonmedv</a>
+                <script>
+                    !function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');
+                </script>
+            </div>
 
-        <a href="http://feeds.feedburner.com/elfet"><img src="/img/rss/small.png" alt="rss"></a>
-
-        <a href="https://twitter.com/antonmedv" class="twitter-follow-button" data-show-count="false"
-           data-lang="ru">Читать @antonmedv</a>
-        <script>!function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');</script>
-    </footer>
-</div>
+            <div class="col-md-4 text-right">
+                <a href="http://feeds.feedburner.com/elfet"><img src="/img/rss/small.png" alt="rss"></a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="/lib/jquery.min.js"></script>
 <script src="/lib/jquery.cookie.js"></script>
