@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/theme.css">
     <link rel="stylesheet" href="/css/extra.css">
-    <link rel="stylesheet" href="/lib/prism/prism.css">
+    <link rel="stylesheet" href="/lib/highlight/style.css">
 </head>
 <body>
 
@@ -72,7 +72,7 @@
 
 <script src="/lib/jquery.min.js"></script>
 <script src="/lib/jquery.cookie.js"></script>
-<script src="/lib/prism/prism.js"></script>
+<script src="/lib/highlight/highlight.js"></script>
 <script src="/lib/orphus/orphus.js"></script>
 
 <a href="http://orphus.ru" id="orphus" target="_blank">
@@ -81,6 +81,11 @@
 
 <script>
     $(function () {
+        /**
+         * Init Highlighting
+         */
+        hljs.initHighlightingOnLoad();
+
         /**
          * Show Orphus banner only once.
          */
