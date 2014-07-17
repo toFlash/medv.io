@@ -47,3 +47,20 @@ img.right {
     font-size: 80% !important;
     line-height: normal !important;
 }
+
+code {
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+pre code {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.hljs {
+    padding: 0;
+}

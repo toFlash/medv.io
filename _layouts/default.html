@@ -10,8 +10,8 @@
     <link type="application/atom+xml" rel="alternate" href="/atom.xml">
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/theme.css">
-    <link rel="stylesheet" href="/css/extra.css">
     <link rel="stylesheet" href="/lib/highlight/style.css">
+    <link rel="stylesheet" href="/css/extra.css">
 </head>
 <body>
 
@@ -84,7 +84,9 @@
         /**
          * Init Highlighting
          */
-        hljs.initHighlightingOnLoad();
+        $('pre code[class*="language-"]').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
 
         /**
          * Show Orphus banner only once.
