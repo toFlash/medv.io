@@ -59,3 +59,15 @@ footer {
     color: #535353;
     font-size: 14px;
 }
+
+/* Resume */
+
+.resume-avatar {
+    float: right;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background-image: url("/img/iam.jpg");
+    background-size: cover;
+    background-position: center right;
+}
