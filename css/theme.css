@@ -71,3 +71,7 @@ footer {
     background-size: cover;
     background-position: center right;
 }
+
+.experience > div {
+    margin-bottom: 15px;
+}
