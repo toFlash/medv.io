@@ -75,3 +75,28 @@ footer {
 .experience > div {
     margin-bottom: 15px;
 }
+
+table.skills tr:hover {
+    background-color: #fbfbfb;
+}
+
+table.skills tr td {
+    border: none;
+}
+
+table.skills tr.skill td:first-child {
+    padding-left: 10px;
+}
+
+table.skills tr.sub-skill td:first-child {
+    padding-left: 50px;
+}
+
+table.skills tr td.stars {
+    min-width: 150px;
+    text-align: right;
+}
+
+table.skills tr.cat td {
+    color: #bbb9b5;
+}
