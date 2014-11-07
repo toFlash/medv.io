@@ -48,6 +48,10 @@ img.right {
     line-height: normal !important;
 }
 
+.gist pre {
+    font-size: 12px !important;
+}
+
 code {
     color: #333;
     background-color: #f5f5f5;
