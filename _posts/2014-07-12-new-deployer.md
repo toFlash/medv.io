@@ -3,7 +3,7 @@ layout: post
 title: Большое обновление Deployer
 ---
 
-Последнюю неделю активно занимался развитием инструмента для деплоя [Deployer](http://deployer.in).
+Последнюю неделю активно занимался развитием инструмента для деплоя [Deployer](http://deployer.org).
 Также обновил сайт и написал более хорошую документацию.
 
 ![Deployer](/assets/new-deployer/deployer.png)
