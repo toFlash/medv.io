@@ -102,7 +102,8 @@ date: 2013-06-06 15:45
 <br>
 Вот <a href="https://www.youtube.com/watch?v=_0Y42ExmBoY">хорошее видео</a> демонстрирующее как работают некоторые из функций:<br>
 <br>
-<iframe width="560" height="315" src="http://www.youtube.com/embed/_0Y42ExmBoY" frameborder="0" allowfullscreen></iframe><br>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/_0Y42ExmBoY" frameborder="0" allowfullscreen></iframe>
+<br>
 <br>
 <h4>Динамические интерактивные вычисления</h4><br>
 Одной из замечательнейших возможностью <i>Mathematica</i>, являются динамические вычисления. Они позволяют манипулировать данными и смотреть на то как динамически меняется результат. <br>
