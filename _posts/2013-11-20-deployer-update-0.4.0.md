@@ -4,7 +4,7 @@ title: Обновление Deployer
 published: true
 ---
 
-Новое обновление для [deployer](https://github.com/elfet/deployer) включает в себя небольшое изменения в архитектуре для упрощения тестирования. Тесты выполнаются на Travis-CI: [![Build Status](https://travis-ci.org/elfet/deployer.png?branch=master)](https://travis-ci.org/elfet/deployer)
+Новое обновление для [deployer](https://github.com/deployphp/deployer) включает в себя небольшое изменения в архитектуре для упрощения тестирования. Тесты выполнаются на Travis-CI: [![Build Status](https://travis-ci.org/deployphp/deployer.png?branch=master)](https://travis-ci.org/deployphp/deployer)
 
 А так же новую возможность: групповое подключение к нескольким серверам. 
 Если у вас несколько серверов (например тестовый, девелоперский и т.д.) вы можете подключиться ко всем сразу и выполнить деплой на всех.
