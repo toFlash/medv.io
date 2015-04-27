@@ -9,7 +9,7 @@ body {
 header {
     min-height: 50vh;
     margin-bottom: 15px;
-    background: transparent;
+    background: url("/img/saturn.jpg") center center no-repeat;
     background-size: cover;
     padding: 15px;
 }

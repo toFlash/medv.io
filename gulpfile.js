@@ -19,7 +19,6 @@ var css = [
 
 var js = [
     'bower_components/jquery/dist/jquery.js',
-    'bower_components/parallax.js/parallax.js',
     'src/js/*.js',
     'vendor/highlight/highlight.js'
 ];
