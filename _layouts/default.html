@@ -12,7 +12,12 @@
 </head>
 <body>
 
-<header {% if page.background %}style="background-image: url('{{ page.background }}');" {% endif %}>
+<header data-parallax="scroll"
+        {% if page.background %}
+        data-image-src="{{ page.background }}"
+        {% else %}
+        data-image-src="/img/saturn.jpg"
+        {% endif %}>
     <div class="container">
         <form class="form-inline pull-right">
             <input type="search" class="form-control" id="search" placeholder="Поиск по блогу">

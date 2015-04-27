@@ -887,7 +887,7 @@ td.visible-print,th.visible-print{display:table-cell!important}
 
 body{font-size:18px}
 .container{max-width:800px}
-header{min-height:50vh;margin-bottom:15px;background:url(/img/saturn.jpg)center center no-repeat;background-size:cover;padding:15px}
+header{min-height:50vh;margin-bottom:15px;background:0 0;background-size:cover;padding:15px}
 header #search{background:rgba(255,255,255,0);width:200px;color:#fff;transition:all .5s cubic-bezier(.79,-.99,.58,1)}
 header #search:focus{background:rgba(255,255,255,.15);width:300px}
 article{color:#444;margin-bottom:60px;clear:both}
