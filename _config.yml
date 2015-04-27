@@ -2,3 +2,13 @@ baseurl: http://elfet.ru
 markdown: kramdown
 permalink: :title/
 paginate: 10
+exclude:
+  - bower_components
+  - node_modules
+  - src
+  - vendor
+  - bower.json
+  - CNAME
+  - gulpfile.js
+  - package.json
+  - README.md

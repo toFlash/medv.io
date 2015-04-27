@@ -7,33 +7,16 @@
     <meta name="description" content="Блог о программировании на PHP, Symfony, Silex, Doctrine, Deployer, WebCrypt.">
     <link rel="shortcut icon" href="/favicon.ico">
     <link type="application/atom+xml" rel="alternate" href="/atom.xml">
-    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" media="print" href="/css/print.css">
 </head>
 <body>
 
-<header>
+<header {% if page.background %}style="background-image: url('{{ page.background }}');" {% endif %}>
     <div class="container">
-        <nav class="navbar navbar-default"
-             {% if page.background %}style="background-image: url('{{ page.background }}');" {% endif %}>
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/"><img src="/img/logo.png"></a>
-                </div>
-
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Блог</a></li>
-                    <li><a href="/projects.html">Проекты</a></li>
-                    <li><a href="/contacts.html">Контакты</a></li>
-                </ul>
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="search form-control" placeholder="Поиск">
-                    </div>
-                </form>
-            </div>
-        </nav>
+        <form class="form-inline pull-right">
+            <input type="search" class="form-control" id="search" placeholder="Поиск по блогу">
+        </form>
     </div>
 </header>
 

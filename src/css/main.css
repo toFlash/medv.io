@@ -7,28 +7,23 @@ body {
 }
 
 header {
-    margin-top: 20px;
+    min-height: 50vh;
     margin-bottom: 15px;
-}
-
-header nav.navbar-default {
     background: url("/img/saturn.jpg") center center no-repeat;
     background-size: cover;
-    border-radius: 10px;
-    border: none;
+    padding: 15px;
 }
 
-header nav.navbar-default a {
-    color: #ffffff !important;
-}
-
-header nav.navbar-default a.navbar-brand img {
-    height: 24px;
-}
-
-header nav.navbar-default input.search {
-    background: transparent;
+header #search {
+    background: rgba(255, 255, 255, 0);
+    width: 200px;
     color: #ffffff;
+    transition: all .5s cubic-bezier(0.79, -0.99, 0.58, 1);
+}
+
+header #search:focus {
+    background: rgba(255, 255, 255, 0.15);
+    width: 300px;
 }
 
 article {
@@ -46,6 +41,7 @@ article .meta {
 article .comments {
     margin-top: 60px;
     margin-bottom: 60px;
+    min-height: 100vh;
 }
 
 article .more {
