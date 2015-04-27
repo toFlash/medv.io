@@ -890,6 +890,8 @@ body{font-size:18px}
 header{min-height:50vh;margin-bottom:15px;background:0 0;background-size:cover;padding:15px}
 header #search{background:rgba(255,255,255,0);width:200px;color:#fff;transition:all .5s cubic-bezier(.79,-.99,.58,1)}
 header #search:focus{background:rgba(255,255,255,.15);width:300px}
+@media only screen and (max-width:767px){header #search,header #search:focus{width:200px}
+}
 article{color:#444;margin-bottom:60px;clear:both}
 article .meta{margin-bottom:20px;color:#999;font-size:14px}
 article .comments{margin-top:60px;margin-bottom:60px;min-height:100vh}

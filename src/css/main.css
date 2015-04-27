@@ -26,6 +26,13 @@ header #search:focus {
     width: 300px;
 }
 
+@media only screen and (max-width: 767px) {
+    header #search,
+    header #search:focus {
+        width: 200px;
+    }
+}
+
 article {
     color: #444;
     margin-bottom: 60px;
