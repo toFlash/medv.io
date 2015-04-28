@@ -23,6 +23,7 @@ var fonts = [
 
 var js = [
     'bower_components/jquery/dist/jquery.js',
+    'bower_components/bootstrap/js/dropdown.js',
     'src/js/*.js',
     'vendor/highlight/highlight.js'
 ];

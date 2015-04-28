@@ -32,9 +32,17 @@
 
 <header {% if page.background %}style="background-image: url('{{ page.background }}')"{% endif %}>
     <div class="container">
-        <a href="/" class="logo">
-            <i class="glyphicon glyphicon-home"></i>
-        </a>
+        <div class="dropdown pull-left">
+            <a href="/" class="logo" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-console"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Главная</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/projects.html">Проекты</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+
         <form class="form-inline pull-right">
             <input type="search" class="form-control" id="search" placeholder="Поиск по блогу">
         </form>
