@@ -1150,6 +1150,7 @@ header{margin-bottom:15px;background:url(/img/saturn.jpg)center center no-repeat
 header #search{font-size:14px;background:rgba(255,255,255,0);width:200px}
 header #search:focus{background:#fff;width:300px}
 header #search.transition{transition:all .5s cubic-bezier(.79,-.99,.58,1)}
+header #search-results{width:100%;overflow-x:hidden}
 header .logo,header .logo:hover{font-size:24px;color:#fff}
 @media only screen and (max-width:767px){header #search,header #search:focus{width:150px}
 }

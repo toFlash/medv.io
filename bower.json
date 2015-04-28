@@ -9,6 +9,8 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3",
-    "jquery": "~2.1"
+    "jquery": "~2.1",
+    "lunr.js": "~0.5.8",
+    "lunr.ru.js": "git@github.com:olivernn/lunr.ru.js.git"
   }
 }

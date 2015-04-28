@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<header {% if page.background %}style="background-image: url('{{ page.background }}')"{% endif %}>
+<header {% if page.background %}style="background-image: url('{{ page.background }}')" {% endif %}>
     <div class="container">
         <div class="dropdown pull-left">
             <a href="/" class="logo" data-toggle="dropdown">
@@ -43,9 +43,10 @@
             </ul>
         </div>
 
-        <form class="form-inline pull-right">
+        <div class="dropdown pull-right">
             <input type="search" class="form-control" id="search" placeholder="Поиск по блогу">
-        </form>
+            <ul id="search-results" class="dropdown-menu"></ul>
+        </div>
     </div>
 </header>
 

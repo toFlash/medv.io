@@ -24,13 +24,15 @@ var fonts = [
 var js = [
     'bower_components/jquery/dist/jquery.js',
     'bower_components/bootstrap/js/dropdown.js',
+    'bower_components/lunr.js/lunr.js',
+    'bower_components/lunr.ru.js/lunr.ru.js',
     'src/js/*.js',
     'vendor/highlight/highlight.js'
 ];
 
 var html = [
     './*.html',
-    'index.json',
+    'index.js',
     '_posts/*',
     '_layouts/*',
     '_includes/*'
@@ -76,7 +78,7 @@ gulp.task('js', function () {
         .pipe(gulp.dest('_site/js'));
 });
 
-gulp.task('html', shell.task('jekyll build'));
+gulp.task('html', shell.task('jekyll build -b'));
 
 gulp.task('watch', function () {
     gulp.watch(css, ['css']);
