@@ -17,6 +17,10 @@ var css = [
     '!src/css/print.css'
 ];
 
+var fonts = [
+    'bower_components/bootstrap/dist/fonts/*'
+];
+
 var js = [
     'bower_components/jquery/dist/jquery.js',
     'src/js/*.js',
@@ -49,7 +53,15 @@ gulp.task('css', function () {
         .pipe(gulp.dest('_site/css'));
 
     gulp.src(['src/css/print.css'])
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('_site/css'));
+
+});
+
+gulp.task('font', function () {
+    gulp.src(fonts)
+        .pipe(gulp.dest('fonts'))
+        .pipe(gulp.dest('_site/fonts'));
 });
 
 gulp.task('js', function () {
@@ -67,6 +79,7 @@ gulp.task('html', shell.task('jekyll build'));
 
 gulp.task('watch', function () {
     gulp.watch(css, ['css']);
+    gulp.watch(fonts, ['font']);
     gulp.watch(js, ['js']);
     gulp.watch(html, ['html'])
 });
@@ -79,4 +92,4 @@ gulp.task('connect', function () {
     });
 });
 
-gulp.task('default', ['css', 'js', 'html', 'connect', 'watch']);
+gulp.task('default', ['css', 'font', 'js', 'html', 'connect', 'watch']);
