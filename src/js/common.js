@@ -46,6 +46,7 @@ $(function () {
     };
 
     var foundedResults = 0;
+    var selectedResult = 1;
     var lastSearchQuery = '';
 
     search.bind('keyup', debounce(function () {
@@ -65,6 +66,7 @@ $(function () {
         }
 
         foundedResults = i;
+        selectedResult = 1;
 
     }));
 
@@ -77,8 +79,6 @@ $(function () {
             search.parent().removeClass('open');
         }, 200);
     });
-
-    var selectedResult = 1;
 
     var deselectLast = function () {
         var li = searchResults.find('li:nth-child(' + selectedResult + ')').removeClass('active');
