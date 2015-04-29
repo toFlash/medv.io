@@ -1147,10 +1147,17 @@ td.visible-print,th.visible-print{display:table-cell!important}
 }
 .container{max-width:800px}
 header{margin-bottom:15px;background:url(/img/saturn.jpg)center center no-repeat;background-size:cover;padding:15px}
-header #search{font-size:14px;background:rgba(255,255,255,0);width:200px;height:38px}
+header #search{font-size:16px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:rgba(255,255,255,0);width:200px;height:38px}
 header #search:focus{background:#fff;width:300px}
 header #search.transition{transition:all .5s cubic-bezier(.79,-.99,.58,1)}
 header #search-results{width:100%;overflow-x:hidden;font-size:18px}
+header #search-results li.active span{display:block;-webkit-animation:marquee 5s linear infinite;animation:marquee 5s linear infinite}
+@-webkit-keyframes marquee{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}
+50%{-webkit-transform:translateX(-50%);transform:translateX(-50%)}
+}
+@keyframes marquee{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}
+50%{-webkit-transform:translateX(-50%);transform:translateX(-50%)}
+}
 header .logo,header .logo:hover{font-size:24px;color:#fff}
 @media only screen and (max-width:767px){header #search,header #search:focus{width:150px}
 }
@@ -1173,6 +1180,7 @@ code,pre{font-size:14px}
 code{color:#333;background-color:#fff;border:1px solid #ccc;border-radius:4px}
 pre{word-wrap:normal}
 pre code{border:none;border-radius:0;background-color:transparent;white-space:pre}
+marquee{display:block;margin:0;padding:0}
 
 .hljs{display:block;overflow-x:auto;color:#333}
 .diff .hljs-header,.hljs-comment,.hljs-javadoc,.hljs-template_comment{color:#998;font-style:italic}

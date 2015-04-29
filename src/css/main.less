@@ -1,3 +1,5 @@
+@import "variables.less";
+
 body {
 }
 
@@ -13,7 +15,8 @@ header {
 }
 
 header #search {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: @font-family-sans-serif;
   background: rgba(255, 255, 255, 0);
   width: 200px;
   height: 38px;
@@ -32,6 +35,23 @@ header #search-results {
   width: 100%;
   overflow-x: hidden;
   font-size: 18px;
+}
+
+header #search-results li.active span {
+  display: block;
+  animation: marquee 5s linear infinite;
+}
+
+@keyframes marquee {
+  0%  {
+    transform:translateX(0%);
+  }
+  50% {
+    transform:translateX(-50%);
+  }
+  100%{
+    transform:translateX(0%);
+  }
 }
 
 header .logo,
@@ -154,4 +174,10 @@ pre {
     background-color: transparent;
     white-space: pre;
   }
+}
+
+marquee {
+  display: block;
+  margin: 0;
+  padding: 0;
 }

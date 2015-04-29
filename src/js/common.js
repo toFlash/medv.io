@@ -45,20 +45,26 @@ $(function () {
         }
     };
 
+    var foundedResults = 0;
+    var lastSearchQuery = '';
+
     search.bind('keyup', debounce(function () {
-        if ($(this).val() < 2) {
+        var searchQuery = $(this).val();
+        if (searchQuery < 2 || lastSearchQuery == searchQuery) {
             return;
         }
 
         searchResults.html('<li class="dropdown-header">Результаты поиска:</li>');
         search.dropdown('toggle');
 
-        var result = index.search($(this).val());
+        var result = index.search(lastSearchQuery = searchQuery);
 
-        for(var i = 0; i < result.length && i < 10; i++) {
+        for (var i = 0; i < result.length && i < 10; i++) {
             var obj = reference[result[i].ref];
-            searchResults.append('<li><a href="' + obj.url + '">' + decodeURI(obj.title) + '</a></li>');
+            searchResults.append('<li><a href="' + obj.url + '"><span>' + decodeURI(obj.title) + '</span></a></li>');
         }
+
+        foundedResults = i;
 
     }));
 
@@ -70,6 +76,47 @@ $(function () {
         setTimeout(function () {
             search.parent().removeClass('open');
         }, 200);
+    });
+
+    var selectedResult = 1;
+
+    var deselectLast = function () {
+        var li = searchResults.find('li:nth-child(' + selectedResult + ')').removeClass('active');
+    };
+
+    var selectResult = function (i) {
+        var li = searchResults.find('li:nth-child(' + i + ')').addClass('active');
+    };
+
+    search.keydown(function (e) {
+        switch (e.which) {
+            case 38: // up
+                if (selectedResult > 1) {
+                    deselectLast();
+                    selectResult(--selectedResult);
+                }
+                break;
+
+            case 40: // down
+                if (selectedResult <= foundedResults) {
+                    deselectLast();
+                    selectResult(++selectedResult);
+                }
+                break;
+
+            case 13: // enter
+                var href = searchResults.find('li:nth-child(' + selectedResult + ') > a').attr('href');
+
+                if (typeof href != "undefined") {
+                    location.href = href;
+                }
+                break;
+
+            default:
+                return; // exit this handler for other keys
+        }
+
+        e.preventDefault();
     });
 });
 
