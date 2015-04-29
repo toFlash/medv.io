@@ -78,7 +78,7 @@ gulp.task('js', function () {
         .pipe(gulp.dest('_site/js'));
 });
 
-gulp.task('html', shell.task('jekyll build -b'));
+gulp.task('html', shell.task('jekyll build'));
 
 gulp.task('watch', function () {
     gulp.watch(css, ['css']);
