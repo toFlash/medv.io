@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Flyspeck &mdash; простой DI на JavaScript
+title: Flyspeck — простой DI на JavaScript
 ---
 Нужен был простой контейнер внедрения зависимостей на JavaScript. Реализовал похожим на [Pimple](http://pimple.sensiolabs.org/).
 
