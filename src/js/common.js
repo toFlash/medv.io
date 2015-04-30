@@ -22,15 +22,22 @@ $(function () {
      */
     var search = $('#search');
     var searchResults = $('#search-results');
+    var isIndexLoaded = false;
 
     search.addClass('transition');
 
-    search.one('click', function () {
-        $.ajax({
-            url: "/index.js",
-            dataType: "script"
-        });
-    });
+    var loadIndex = function () {
+        if(!isIndexLoaded) {
+            isIndexLoaded = true;
+
+            $.ajax({
+                url: "/index.js",
+                dataType: "script"
+            });
+        }
+    };
+
+    search.one('click', loadIndex);
 
     var debounce = function (fn) {
         var timeout;
@@ -50,7 +57,10 @@ $(function () {
     var lastSearchQuery = '';
 
     search.bind('keyup', debounce(function () {
+        loadIndex();
+
         var searchQuery = $(this).val();
+
         if (searchQuery < 2 || lastSearchQuery == searchQuery) {
             return;
         }
