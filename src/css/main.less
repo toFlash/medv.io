@@ -37,7 +37,7 @@ header #search-results {
   font-size: 18px;
 }
 
-header #search-results li.active span {
+header #search-results li.active span.long {
   display: block;
   animation: marquee 5s linear infinite;
 }
@@ -47,7 +47,7 @@ header #search-results li.active span {
     transform:translateX(0%);
   }
   50% {
-    transform:translateX(-50%);
+    transform:translateX(-100%);
   }
   100%{
     transform:translateX(0%);
@@ -97,10 +97,13 @@ article img {
 
 article, p, li, blockquote, .info {
   font-size: 22px;
-  text-align: justify;
   line-height: 1.5;
   letter-spacing: 0.01rem;
   -webkit-font-smoothing: antialiased;
+}
+
+p {
+  text-align: justify;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -163,6 +166,7 @@ code {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+  white-space: pre;
 }
 
 pre {

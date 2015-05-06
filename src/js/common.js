@@ -71,8 +71,15 @@ $(function () {
         var result = index.search(lastSearchQuery = searchQuery);
 
         for (var i = 0; i < result.length && i < 10; i++) {
-            var obj = reference[result[i].ref];
-            searchResults.append('<li><a href="' + obj.url + '"><span>' + decodeURI(obj.title) + '</span></a></li>');
+            var span, obj = reference[result[i].ref];
+
+            if (obj.title.length <= 24 ) {
+                span = '<span>' + decodeURI(obj.title) + '</span>';
+            } else {
+                span = '<span class="long">' + decodeURI(obj.title) + '</span>';
+            }
+
+            searchResults.append('<li><a href="' + obj.url + '">' + span + '</a></li>');
         }
 
         foundedResults = i;
