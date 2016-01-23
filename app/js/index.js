@@ -1,6 +1,8 @@
 import { highlightCodeBlocks } from './code';
+import { search } from './search';
 
 highlightCodeBlocks();
+search();
 
 //
 ///**
