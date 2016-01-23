@@ -1,6 +1,3 @@
-@import url('highlight/github-gist.css');
-@import url('search');
-
 // Reset
 
 * {
@@ -27,6 +24,10 @@ html {
 nav {
   margin-top: 20px;
   margin-bottom: 30px;
+
+  .container {
+    position: relative;
+  }
 }
 
 .container {
@@ -251,6 +252,11 @@ blockquote,
   font-size: 12px !important;
 }
 
+
+// Code
+
+@import url('highlight/github-gist.css');
+
 code {
   font-size: 0.8rem;
   color: #333;
@@ -272,4 +278,8 @@ pre {
   }
 }
 
+
+// Other
+
+@import url('search');
 @import url('adaptive');

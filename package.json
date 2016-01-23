@@ -20,6 +20,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "latest",
     "highlight.js": "^9.1.0",
+    "svg-embed": "^1.0.6",
     "webpack": "^1.12.11"
   }
 }

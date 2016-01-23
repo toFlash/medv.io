@@ -1,3 +1,51 @@
-.icon-search {
-  background: url('');
+.btn-search {
+  position: absolute;
+  right: 50px;
+  padding: 5px 8px 8px 5px;
+  line-height: 0;
+
+  .icon-search {
+    display: inline-block;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    border: solid 1px #c8c8c8;
+    border-radius: 100%;
+    transition: border-color 0.3s;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: -5px;
+      top: 19px;
+      transform: rotate(45deg);
+      transition: background 0.3s;
+      background: #c8c8c8;
+      width: 9px;
+      height: 2px;
+    }
+  }
+
+  .tooltip {
+    position: absolute;
+    opacity: 0;
+    left: -170px;
+    top: 15px;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  &:hover {
+    .tooltip {
+      opacity: 1;
+      transform: translateX(20px);
+    }
+
+    .icon-search {
+      border-color: #3498db;
+      &:after {
+        background: #3498db;
+      }
+    }
+  }
 }
