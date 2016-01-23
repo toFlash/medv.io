@@ -1,9 +1,8 @@
-baseurl: http://elfet.ru
+baseurl: http://medv.io
 markdown: kramdown
 permalink: :title/
 paginate: 10
 exclude:
-  - bower_components
   - node_modules
   - src
   - vendor
@@ -12,3 +11,6 @@ exclude:
   - gulpfile.js
   - package.json
   - README.md
+gems:
+  - jekyll-feed
+  - jekyll-paginate

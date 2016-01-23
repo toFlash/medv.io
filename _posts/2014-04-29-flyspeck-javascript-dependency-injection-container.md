@@ -2,9 +2,9 @@
 layout: post
 title: Flyspeck — простой DI на JavaScript
 ---
-Нужен был простой контейнер внедрения зависимостей на JavaScript. Реализовал похожим на [Pimple](http://pimple.sensiolabs.org/).
+Нужен был простой [контейнер внедрения зависимостей на JavaScript](https://gist.github.com/elfet/11349215). Реализовал похожим на [Pimple](http://pimple.sensiolabs.org/).
 
-<script src="https://gist.github.com/elfet/11349215.js"></script>
+<!--more-->
 
 Пример использования:
 
@@ -47,4 +47,3 @@ c.extend('app', function (app, c) {
 // Получаем все сразу.
 var app = c.get('app');
 ~~~
-<!--more-->
