@@ -270,13 +270,14 @@ code {
 
 pre {
   word-wrap: normal;
+  overflow-y: scroll;
+
   code {
     font-size: 0.9rem;
     border: none;
     border-radius: 0;
     background-color: transparent;
     white-space: pre;
-    overflow-y: scroll;
   }
 }
 
