@@ -12,7 +12,7 @@ title: PurePHP — NoSQL база данных на чистом PHP
 
 <!--more-->
 
-Для установки скачайте [phar архив](http://elfet.ru/purephp/pure.phar) и выполните следующие команды:
+Для установки скачайте [phar архив](https://github.com/elfet/purephp/releases/tag/v1.1.0) и выполните следующие команды:
 
 ~~~
 mv pure.phar /usr/local/bin/pure

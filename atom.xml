@@ -9,7 +9,7 @@
     <id>{{ site.baseurl }}/</id>
     <author>
         <name>Anton Medvedev</name>
-        <email>anton@elfet.ru</email>
+        <email>anton@medv.io</email>
     </author>
     {% for post in site.posts limit:20 %}
     <entry>

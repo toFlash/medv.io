@@ -7,7 +7,7 @@ date: 2012-11-13 10:10
 
 В этой статье я хочу ещё раз поговорить о разработке архитектуры приложения с использованием инверсии зависимости (<a href="http://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F">Inversion of Control</a>).
 
-Я уже писал о библиотеке <a title="Inversion of Control на PHP" href="http://elfet.ru/inversion-of-control-on-php">IoC</a> и о <a href="http://habrahabr.ru/post/149435/">Modular</a>.
+Я уже писал о библиотеке <a title="Inversion of Control на PHP" href="http://medv.io/inversion-of-control-on-php">IoC</a> и о <a href="http://habrahabr.ru/post/149435/">Modular</a>.
 Теперь я пошел ещё дальше и упростил все что только можно и попробую объяснить принципы построения архитектуры. А так же расскажу о новой библиотеке <a href="http://granula.github.com/">Granula</a>.
 
 <!--more-->
