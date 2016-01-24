@@ -38,7 +38,8 @@ export function search() {
   // Using the russian language extension.
   lunr.ru.call(index);
 
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
     if (state.active) {
       hide();
     } else {
