@@ -1,9 +1,9 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
-var minifyCSS = require('gulp-minify-css');
+var cssnano = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
@@ -25,12 +25,12 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 gulp.task('css', function () {
-  return gulp.src(['app/css/main.less'])
+  return gulp.src(['app/css/main.scss'])
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(less())
+    .pipe(sass())
     .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(minifyCSS({keepBreaks: true}))
+    .pipe(cssnano())
     .pipe(concat('app.css'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(BUILD));
@@ -46,7 +46,7 @@ gulp.task('js', ['webpack'], function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['app/css/*.less'], ['css']);
+  gulp.watch(['app/css/*.scss'], ['css']);
   return gulp.src('', {read: false})
     .pipe(shell('webpack -w'));
 });

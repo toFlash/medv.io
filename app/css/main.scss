@@ -256,7 +256,7 @@ blockquote,
 
 // Code
 
-@import url('highlight/github-gist.css');
+@import 'highlight/github-gist';
 
 code {
   font-size: 0.8rem;
@@ -282,5 +282,5 @@ pre {
 
 // Other
 
-@import url('search');
-@import url('adaptive');
+@import 'search';
+@import 'adaptive';

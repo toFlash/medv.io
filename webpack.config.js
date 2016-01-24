@@ -12,6 +12,13 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.monk$/,
+        loader: 'monkberry-loader',
+        query: {
+          globals: ['window']
+        }
       }
     ]
   },

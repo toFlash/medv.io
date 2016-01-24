@@ -1,6 +1,6 @@
 ---
 ---
-init_index_callback([{% for post in site.posts %}
+indexCallback([{% for post in site.posts %}
     {
         "id": {{ forloop.index0 }},
         "title": "{{ post.title | xml_escape }}",
