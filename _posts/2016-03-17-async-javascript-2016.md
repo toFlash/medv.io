@@ -14,7 +14,9 @@ title: Async JavaScript 2016 — Aviasales
 
 <div class="slide"><script async class="speakerdeck-embed" data-id="203f637fb09c49499e54f5eb900911bd" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script></div>
 
-Ссылки: 
+
+Ссылки:
+
 * https://github.com/tj/co
 * https://github.com/facebook/regenerator
 * https://tc39.github.io/ecmascript-asyncawait/
