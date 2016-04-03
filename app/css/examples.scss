@@ -1,0 +1,32 @@
+.utc-example {
+  margin: 50px 100px;
+
+  input.source {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    padding: 8px 5px;
+    border: 1px solid rgba(146, 22, 255, 0.44);
+    outline: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+  }
+
+  .output {
+    margin-top: 5px;
+    padding: 3px 5px;
+    border: 1px solid rgba(22, 242, 255, 0.44);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 45px;
+  }
+}
+
+
+@media only screen and (max-device-width: 480px) {
+  .utc-example {
+    margin: 0;
+    margin-top: 20px;
+  }
+}

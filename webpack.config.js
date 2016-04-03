@@ -1,10 +1,13 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './app/js/index.js',
+  entry: {
+    'app': './app/js/index.js',
+    'ultra-tiny-compiler': './app/js/example/ultra-tiny-compiler/index.js'
+  },
   output: {
     path: './build',
-    filename: 'app.js'
+    filename: '[name].js'
   },
   module: {
     loaders: [
@@ -22,7 +25,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'inline-source-maps',
+  devtool: 'source-maps',
   stats: {
     colors: true
   }

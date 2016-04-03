@@ -19,7 +19,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "latest",
-    "highlight.js": "^9.1.0",
+    "highlight.js": "^9.2.0",
     "monkberry": "^3.4.1",
     "monkberry-loader": "^3.4.1",
     "webpack": "^1.12.11"
