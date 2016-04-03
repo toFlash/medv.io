@@ -36,6 +36,16 @@ nav {
     margin-right: 10px;
     font-size: 0.8rem;
     color: hsl(208, 40%, 67%);
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22420%22%3E%3Cpath%20stroke%3D%22%2389adcd%22%20fill%3D%22none%22%20stroke-width%3D%2220%22%20d%3D%22M209%2015a195%20195%200%201%200%202%200zm1%200v390m195-195H15M59%2090a260%20260%200%200%200%20302%200m0%20240a260%20260%200%200%200-302%200M195%2020a250%20250%200%200%200%200%20382m30%200a250%20250%200%200%200%200-382%22%2F%3E%3C%2Fsvg%3E') no-repeat;
+      background-size: contain;
+      vertical-align: sub;
+      margin-right: 5px;
+    }
   }
 }
 
