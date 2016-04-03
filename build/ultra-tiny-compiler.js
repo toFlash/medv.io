@@ -1650,7 +1650,7 @@
 	      if (lookahead === terminal) {
 	        return lookahead = next();
 	      } else {
-	        throw "Syntax error: Unexpected token " + lookahead;
+	        throw "Syntax error: Expected token " + terminal + " got " + lookahead;
 	      }
 	    };
 	    recover = function recover(token) {
