@@ -76,7 +76,6 @@ export function search() {
   }));
 
   setInterval(() => {
-    console.log('clear');
     if (input.value.length < 2) {
       state.results = [];
       state.foundedResults = 0;
