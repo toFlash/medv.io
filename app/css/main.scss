@@ -28,6 +28,15 @@ nav {
   .container {
     position: relative;
   }
+
+  .btn-english,
+  .btn-russian {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 0.8rem;
+    color: hsl(208, 40%, 67%);
+  }
 }
 
 .container {
