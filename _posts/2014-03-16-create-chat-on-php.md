@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Создание чата на PHP
+visible: true
 ---
 
 Пять лет назад я написал похожую [статью](http://medv.io/create-php-ajax-chat/),

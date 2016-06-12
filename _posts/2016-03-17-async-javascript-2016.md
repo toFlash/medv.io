@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Async JavaScript 2016 — Aviasales
+visible: true
 ---
 
 Мое выступление в Aviasales Phuket Office. Рассказываю о организации ассинхронного кода,

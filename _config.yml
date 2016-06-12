@@ -1,7 +1,7 @@
 baseurl: http://medv.io
 markdown: kramdown
 permalink: :title/
-paginate: 10
+paginate: 999
 exclude:
   - node_modules
   - src

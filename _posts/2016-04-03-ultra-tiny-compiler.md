@@ -2,6 +2,7 @@
 layout: post
 title: Ультра крошечный компилятор
 english: /en/ultra-tiny-compiler/
+visible: true
 ---
 
 ![Ultra Tiny Compiler](/assets/ultra-tiny-compiler.png)

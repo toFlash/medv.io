@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PurePHP — NoSQL база данных на чистом PHP
+visible: true
 ---
 
 На PHP создано куча разных штук: [веб-сервер](http://nanoweb.si.kz/), [контроллер квадрокоптера](https://github.com/jolicode/php-ar-drone) и даже [GUI](http://gtk.php.net/).
