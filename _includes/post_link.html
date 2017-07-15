@@ -1,0 +1,11 @@
+<div class="post">
+  <span class="date">{{ post.date | date_to_string }}</span>
+  {% if post.link %}
+  <a href="{{ post.link }}">{{ post.title }}
+    <div class="icon-link"></div>
+  </a>
+  {% else %}
+  <a href="{{ post.url }}">{{ post.title }}</a>
+  {% endif %}
+  {% if post.lang %}<span class="lang">{{ post.lang }}</span>{% endif %}
+</div>

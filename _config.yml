@@ -1,0 +1,10 @@
+baseurl: https://medv.io
+markdown: kramdown
+permalink: :title/
+exclude:
+  - node_modules
+  - app
+  - dist
+  - "*.js"
+  - "*.json"
+  - "*.lock"

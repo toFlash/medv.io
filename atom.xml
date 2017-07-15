@@ -1,0 +1,23 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>medv.io</title>
+    <link href="{{ site.baseurl }}/atom.xml" rel="self"/>
+    <link href="{{ site.baseurl }}"/>
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>{{ site.baseurl }}/</id>
+    <author>
+        <name>Anton Medvedev</name>
+        <email>anton@medv.io</email>
+    </author>
+    {% for post in site.posts limit:20 %}
+    <entry>
+        <title>{{ post.title | xml_escape }}</title>
+        <link href="{{ site.baseurl }}{{ post.url }}"/>
+        <updated>{{ post.date | date_to_xmlschema }}</updated>
+        <id>{{ site.baseurl }}{{ post.url }}</id>
+        <content type="html">{{ post.content | replace: 'src="/assets', 'src="' + site.baseurl + '/assets' | xml_escape }}</content>
+    </entry>
+    {% endfor %}
+</feed>
