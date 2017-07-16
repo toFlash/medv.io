@@ -1,5 +1,5 @@
 ---
 layout: post
 title: Ultra Tiny Compiler
-link: https://github.com/antonmedv/ultra-tiny-compiler
+link: https://github.com/antonmedv/ultra-tiny-compiler/blob/master/readme.litcoffee
 ---

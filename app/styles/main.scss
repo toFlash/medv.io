@@ -1,3 +1,5 @@
+@import "media";
+
 $font-family: "Open Sans", sans-serif;
 $monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
@@ -14,6 +16,10 @@ html {
   letter-spacing: 0.01rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @include mobile() {
+    font-size: 18px;
+  }
 }
 
 *, *:before, *:after {
@@ -26,20 +32,103 @@ nav {
   margin-top: 20px;
   margin-bottom: 30px;
 
-  a.logo {
-    display: inline-block;
-    color: #444;
-    text-decoration: none;
+  .container {
+    a.logo {
+      display: inline-block;
+      color: #444;
+      text-decoration: none;
 
-    svg {
-      vertical-align: middle;
-      margin-right: 10px;
+      svg {
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
     }
 
-    &:hover {
-      text-decoration: none;
+    .follow-button {
+      vertical-align: middle;
+      margin-left: 30px;
+
+      @include mobile() {
+        display: none;
+      }
     }
   }
+}
+
+.follow-button {
+  display: inline-block;
+  position: relative;
+  font-size: 12px;
+  height: 20px;
+  box-sizing: border-box;
+  padding: 1px 8px 1px 6px;
+  background-color: #1b95e0;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+
+  > i {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 14px;
+    height: 14px;
+    background: transparent url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h72v72H0z%22%2F%3E%3Cpath%20class%3D%22icon%22%20fill%3D%22%23fff%22%20d%3D%22M68.812%2015.14c-2.348%201.04-4.87%201.744-7.52%202.06%202.704-1.62%204.78-4.186%205.757-7.243-2.53%201.5-5.33%202.592-8.314%203.176C56.35%2010.59%2052.948%209%2049.182%209c-7.23%200-13.092%205.86-13.092%2013.093%200%201.026.118%202.02.338%202.98C25.543%2024.527%2015.9%2019.318%209.44%2011.396c-1.125%201.936-1.77%204.184-1.77%206.58%200%204.543%202.312%208.552%205.824%2010.9-2.146-.07-4.165-.658-5.93-1.64-.002.056-.002.11-.002.163%200%206.345%204.513%2011.638%2010.504%2012.84-1.1.298-2.256.457-3.45.457-.845%200-1.666-.078-2.464-.23%201.667%205.2%206.5%208.985%2012.23%209.09-4.482%203.51-10.13%205.605-16.26%205.605-1.055%200-2.096-.06-3.122-.184%205.794%203.717%2012.676%205.882%2020.067%205.882%2024.083%200%2037.25-19.95%2037.25-37.25%200-.565-.013-1.133-.038-1.693%202.558-1.847%204.778-4.15%206.532-6.774z%22%2F%3E%3C%2Fsvg%3E) no-repeat 0 0;
+  }
+
+  > .label {
+    display: inline-block;
+    margin-left: 3px;
+    white-space: nowrap;
+    vertical-align: top;
+
+    > b {
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #0c7abf;
+    text-decoration: none;
+  }
+}
+
+.hi {
+  display: flex;
+  max-width: 600px;
+  margin: 70px auto 100px;
+
+  .lead {
+    margin-left: 50px;
+  }
+
+  @include mobile() {
+    flex-direction: column;
+
+    .avatar {
+      margin: 0 auto 40px;
+    }
+
+    .lead {
+      margin-left: 0;
+    }
+  }
+}
+
+.avatar {
+  background: #fff url("/images/avatar.png") no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  flex-shrink: 0;
 }
 
 html.-windows nav svg tspan {
@@ -51,6 +140,12 @@ html.-windows nav svg tspan {
   max-width: 1000px;
   padding-left: 50px;
   padding-right: 50px;
+
+  @include mobile() {
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 article {
@@ -86,6 +181,21 @@ article {
     margin-bottom: 60px;
     min-height: 50vh;
   }
+
+  .fleuron {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .about-the-author {
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    .about-text {
+      margin-left: 50px;
+    }
+  }
 }
 
 p {
@@ -106,6 +216,9 @@ p {
     margin-right: 10px;
   }
 
+  .post {
+  }
+
   .lang {
     color: #93a1a1;
     font-family: $monospace;
@@ -124,6 +237,12 @@ p {
     background: url('data:image/svg+xml,%3Csvg%20height%3D%221792%22%20viewBox%3D%220%200%201792%201792%22%20width%3D%221792%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%2393a1a1%22%20d%3D%22M1408%20928v320q0%20119-84.5%20203.5T1120%201536H288q-119%200-203.5-84.5T0%201248V416q0-119%2084.5-203.5T288%20128h704q14%200%2023%209t9%2023v64q0%2014-9%2023t-23%209H288q-66%200-113%2047t-47%20113v832q0%2066%2047%20113t113%2047h832q66%200%20113-47t47-113V928q0-14%209-23t23-9h64q14%200%2023%209t9%2023zm384-864v512q0%2026-19%2045t-45%2019-45-19l-176-176-652%20652q-10%2010-23%2010t-23-10L695%20983q-10-10-10-23t10-23l652-652-176-176q-19-19-19-45t19-45%2045-19h512q26%200%2045%2019t19%2045z%22%2F%3E%3C%2Fsvg%3E') no-repeat;
     background-size: contain;
     vertical-align: middle;
+  }
+
+  @include mobile() {
+    .date {
+      display: none;
+    }
   }
 }
 
@@ -194,7 +313,6 @@ ul {
 .btn {
   display: inline-block;
   line-height: 35px;
-  margin: 8px;
   padding: 0 15px;
   font-size: 0.8rem;
   position: relative;
@@ -205,6 +323,14 @@ ul {
   background-color: transparent;
   border: 1px solid #d0d0d0;
   color: #424242;
+
+  svg {
+    vertical-align: middle;
+  }
+
+  svg path {
+    transition: fill 0.3s;
+  }
 
   &:before,
   &:after {
@@ -238,6 +364,10 @@ ul {
     color: #3498db;
     text-decoration: none;
 
+    svg path {
+      fill: #3498db;
+    }
+
     &:before {
       width: 100%;
     }
@@ -261,6 +391,14 @@ ul {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+
+  @include mobile() {
+    flex-direction: column;
+
+    .col {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 // **********************

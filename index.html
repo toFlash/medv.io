@@ -3,10 +3,19 @@ layout: default
 title: Anton Medvedev
 ---
 
+<div class="hi">
+  <div class="avatar"></div>
+  <div class="lead">
+    Hi, I’m Anton.<br>
+    Creator of <a href="https://deployer.org">Deployer</a> and <a href="https://monkberry.js.org">Monkberry</a>.<br>
+    Work at <a href="https://aviasales.ru">Aviasales</a>.
+  </div>
+</div>
+
 <h4>Latest from the blog</h4>
 <div class="posts">
   {% for post in site.posts limit:6 %}
-    {% include post_link.html %}
+  {% include post_link.html %}
   {% endfor %}
 </div>
 <a class="btn archive-link" href="/archive/">
