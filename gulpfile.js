@@ -72,6 +72,7 @@ gulp.task('styles', () => {
 gulp.task('pages', $.shell.task('jekyll build'));
 
 gulp.task('webpack', $.shell.task('webpack'));
+gulp.task('webpack-production', $.shell.task('webpack -p --output-filename [name].min.js --output-path ./dist/scripts'));
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', () => {
@@ -144,7 +145,8 @@ gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
     'pages',
-    ['html', 'webpack', 'images', 'copy'],
+    ['html', 'webpack-production', 'images'],
+    'copy',
     'generate-service-worker',
     cb
   )

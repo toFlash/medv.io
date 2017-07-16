@@ -8,3 +8,4 @@ exclude:
   - "*.js"
   - "*.json"
   - "*.lock"
+  - "*.php"
