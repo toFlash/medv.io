@@ -14,6 +14,16 @@ const reload = browserSync.reload;
 
 // Optimize images
 gulp.task('images', () =>
+  gulp.src('app/images/**/*')
+    .pipe($.cache($.imagemin({
+      progressive: true,
+      interlaced: true
+    })))
+    .pipe(gulp.dest('dist/images'))
+    .pipe($.size({title: 'images'}))
+);
+
+gulp.task('assets', () =>
   gulp.src('assets/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
@@ -121,6 +131,7 @@ gulp.task('serve', ['webpack', 'styles', 'pages'], () => {
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['webpack', reload]);
   gulp.watch(['assets/**/*'], reload);
+  gulp.watch(['app/images/**/*'], reload);
 });
 
 // Build and serve the output from the dist build
@@ -144,7 +155,7 @@ gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
     'pages',
-    ['html', 'webpack-production', 'images'],
+    ['html', 'webpack-production', 'images', 'assets'],
     'copy',
     'generate-service-worker',
     cb
