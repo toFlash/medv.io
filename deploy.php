@@ -15,7 +15,6 @@ task('deploy', [
     'deploy:symlink',
     'cleanup',
     'success',
-    'say',
 ]);
 
 task('build', function () {
@@ -24,9 +23,4 @@ task('build', function () {
 
 task('upload', function () {
     upload(__DIR__ . '/dist/', '{{release_path}}');
-});
-
-
-task('say', function () {
-    runLocally("say 'medv.io успешно задеплоен'");
 });
