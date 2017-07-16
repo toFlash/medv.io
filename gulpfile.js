@@ -38,6 +38,7 @@ gulp.task('copy', () =>
   gulp.src([
     'app/*',
     '!app/*.html',
+    '_site/atom.xml',
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
