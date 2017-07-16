@@ -17,7 +17,6 @@
         <link href="{{ site.baseurl }}{{ post.url }}"/>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
         <id>{{ site.baseurl }}{{ post.url }}</id>
-        <content type="html">{{ post.content | replace: 'src="/assets', 'src="' + site.baseurl + '/assets' | xml_escape }}</content>
     </entry>
     {% endfor %}
 </feed>
