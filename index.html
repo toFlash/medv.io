@@ -3,11 +3,12 @@ layout: default
 title: Anton Medvedev
 ---
 
+<h4>Latest from the blog</h4>
 <div class="posts">
-  {% for post in site.posts limit:5 %}
-    {% include post_link.html %}{{ i }}
+  {% for post in site.posts limit:6 %}
+    {% include post_link.html %}
   {% endfor %}
 </div>
-<a class="archive-link" href="/archive/">
+<a class="btn archive-link" href="/archive/">
   Archive
 </a>

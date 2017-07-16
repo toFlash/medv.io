@@ -25,6 +25,25 @@ html {
 nav {
   margin-top: 20px;
   margin-bottom: 30px;
+
+  a.logo {
+    display: inline-block;
+    color: #444;
+    text-decoration: none;
+
+    svg {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+html.-windows nav svg tspan {
+  font-size: 74px;
 }
 
 .container {
@@ -40,10 +59,11 @@ article {
   clear: both;
 
   .meta {
+    font-family: $monospace;
     margin-top: 8px;
     margin-bottom: 20px;
     color: #999999;
-    font-size: 18px;
+    font-size: 0.8rem;
 
     .icon-date {
       display: inline-block;
@@ -75,6 +95,9 @@ p {
 }
 
 .posts {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
   .date {
     font-family: $monospace;
     font-size: 0.7rem;
@@ -106,7 +129,7 @@ p {
 
 .archive-link {
   color: #93a1a1;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -153,6 +176,10 @@ a {
   &:hover {
     color: #3498db;
     text-decoration: underline;
+  }
+
+  &:visited {
+    color: #609;
   }
 }
 
