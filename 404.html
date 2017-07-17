@@ -4,34 +4,58 @@ published: true
 ---
 
 <style>
-    body {
-        background-size: cover;
-        background: #000 no-repeat center center;
-    }
+  body {
+    background-size: cover;
+    background: #000 no-repeat center center;
+  }
 
-    h1 {
-        margin-top: 200px;
-        text-align: center;
-        color: #fff;
-        font-size: 128px;
-    }
+  .not-found {
+    margin-top: 200px;
+    text-align: center;
+  }
 
-    h2 {
-        margin-top: 50px;
-        margin-bottom: 200px;
-        text-align: center;
-        color: #fff;
-    }
+  h1 {
+    margin-top: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 128px;
+    font-family: 'Merriweather', serif;
+  }
 
-    header {
-        background-image: none;
-    }
+  h2 {
+    margin-top: 50px;
+    margin-bottom: 200px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Merriweather', serif;
+  }
 
-    footer {
-        display: none;
-    }
+  nav {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
 </style>
+
+<div class="not-found">
+  <a href="/">
+    <svg width="160" height="200" viewBox="0 0 140 150" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" fill-rule="evenodd">
+        <path fill="#50E3C2" d="M70 0l70 37.466v74.798L70 74.932z"/>
+        <path fill="#B8E986" d="M70 0L0 37.466v74.794l70-37.332z"/>
+        <text font-size="92" fill="#4A4A4A">
+          <tspan x="23" y="116">😵</tspan>
+        </text>
+        <path fill-opacity=".5" fill="#04B8DE" d="M140 37.465L70 74.929 70 149.586l70-37.333z"/>
+        <path fill-opacity=".5" fill="#1CF8B4" d="M0 37.465l70 37.46v74.67L0 112.263z"/>
+        <path fill-opacity=".4" fill="#BD10E0" d="M70 0l70 37.465L70 74.93 0 37.465z"/>
+      </g>
+    </svg>
+  </a>
+</div>
 
 <h1>404</h1>
 
-<h2>Страница не найдена</h2>
+<h2>Not found</h2>
