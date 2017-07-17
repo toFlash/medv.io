@@ -196,6 +196,19 @@ article {
 
     .about-text {
       margin-left: 50px;
+
+      @include mobile() {
+        margin-top: 40px;
+        margin-left: 0;
+      }
+    }
+
+    @include mobile() {
+      flex-direction: column;
+
+      > .avatar {
+        align-self: center;
+      }
     }
   }
 }
@@ -316,7 +329,7 @@ ul {
   display: inline-block;
   line-height: 35px;
   padding: 0 15px;
-  margin-right: 5px;
+  margin: 5px;
   font-size: 0.8rem;
   position: relative;
   opacity: .999;
@@ -449,11 +462,12 @@ blockquote,
 
 @import "solarized-light";
 
-code {
+code.highlighter-rouge {
+  // Only for inline code blocks
   font-family: $monospace;
-  font-size: 0.8rem;
-  color: #333;
-  background-color: #fbfbfb;
+  font-size: 0.9rem;
+  color: #444;
+  background-color: #eeeeee;
   border-radius: 4px;
   padding: 2px 7px;
   vertical-align: middle;
@@ -465,6 +479,8 @@ pre {
   overflow-y: scroll;
 
   code {
+    display: block;
+    font-family: $monospace;
     font-size: 0.9rem;
     border: none;
     border-radius: 0;
@@ -499,3 +515,5 @@ pre {
   margin: 0 auto;
   width: 80%;
 }
+
+@import "posts";

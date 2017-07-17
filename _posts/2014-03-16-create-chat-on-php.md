@@ -32,7 +32,7 @@ PHP имеет встроенный сервер, который отлично 
 то его нужно сконфигурировать так, чтобы он перенаправлял все запросы к нашему скрипту.
 Это можно сделать при помощи файла `.htaccess`:
 
-~~~
+~~~apache
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -301,8 +301,7 @@ php server.php
 
 Подключаем [client.js](https://github.com/antonmedv/chat/blob/master/js/client.js).
 
-<!-- lang: js -->
-~~~
+~~~js
 var conn, text, template;
 
 function connect(server, port) {
@@ -349,7 +348,7 @@ $(function () {
 ~~~
 <img src="/assets/create-chat-on-php/mobile.png" style="float:right">
 
-Код полностью готового чата выложен на GitHub: [elfet/chat](https://github.com/antonmedv/chat).
+Код полностью готового чата выложен на GitHub: [antonmedv/chat](https://github.com/antonmedv/chat).
 
 Он немного отличается от этого: в нём реализованы дополнительные функции:
 

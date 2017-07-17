@@ -38,11 +38,20 @@ gulp.task('copy', () =>
   gulp.src([
     'app/*',
     '!app/*.html',
-    '_site/atom.xml',
+    '_site/atom.xml'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
     .pipe($.size({title: 'copy'}))
+);
+
+gulp.task('copy_og_images', () =>
+  gulp.src([
+    '_site/og/**.png'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/og'))
+    .pipe($.size({title: 'copy_og_images'}))
 );
 
 // Compile and automatically prefix stylesheets
@@ -157,7 +166,7 @@ gulp.task('default', ['clean'], cb =>
     'styles',
     'pages',
     ['html', 'webpack-production', 'images', 'assets'],
-    'copy',
+    ['copy', 'copy_og_images'],
     'generate-service-worker',
     cb
   )

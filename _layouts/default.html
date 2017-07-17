@@ -9,6 +9,23 @@
   {% if page.description %}
   <meta name="description" content="{{ page.description }}">
   {% endif %}
+
+  {% if page.layout == 'post' %}
+  {% assign desc = page.excerpt | newline_to_br | replace: '<br />', '[SPACE]' | strip_html | strip_newlines | replace: '[SPACE]', ' ' | strip |  truncatewords: 30 %}
+  <meta property="og:url" content="{{ site.baseurl }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ desc }}">
+  <meta property="og:image" content="{{ site.baseurl }}/og/{{ page.slug }}.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@antonmedv">
+  <meta name="twitter:creator" content="@antonmedv">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ desc }}">
+  <meta name="twitter:image" content="{{ site.baseurl }}/og/{{ page.slug }}.png">
+  {% endif %}
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">

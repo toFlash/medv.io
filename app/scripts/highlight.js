@@ -13,23 +13,11 @@ highlight.registerLanguage('sql', require('highlight.js/lib/languages/sql'))
 highlight.registerLanguage('lisp', require('highlight.js/lib/languages/lisp'))
 
 highlight.configure({
-  languages: [
-    'php',
-    'js',
-    'json',
-    'yaml',
-    'coffee',
-    'apache',
-    'bash',
-    'css',
-    'sql',
-    'xml',
-    'lisp'
-  ]
+  languages: []
 })
 
 export default function () {
-  let blocks = document.querySelectorAll('pre[class="highlight"] code')
+  let blocks = document.querySelectorAll('pre[class="highlight"]')
   for (let i = 0; i < blocks.length; i++) {
     highlight.highlightBlock(blocks[i])
   }
