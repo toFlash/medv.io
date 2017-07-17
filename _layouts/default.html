@@ -11,7 +11,7 @@
   {% endif %}
 
   {% if page.layout == 'post' %}
-  {% assign desc = page.excerpt | newline_to_br | replace: '<br />', '[SPACE]' | strip_html | strip_newlines | replace: '[SPACE]', ' ' | strip |  truncatewords: 30 %}
+  {% assign desc = page.excerpt | newline_to_br | strip_newlines | replace: '<br />', ' ' | strip_html | strip |  truncatewords: 30 %}
   <meta property="og:url" content="{{ site.baseurl }}{{ page.url }}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page.title }}">
