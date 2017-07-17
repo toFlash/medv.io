@@ -42,8 +42,8 @@ module Jekyll
     end
 
     def split(content)
-      max = 40
-      if content.length > max
+      max = 35
+      if content.length > max + 5
         match = /(.{1,#{max}}\s)(.*)/.match(content)
         if match
           line1 = match[1]
