@@ -15,7 +15,7 @@ That's it! This is a full implementation of immutable list structure in JavaScri
 
 <img src="/assets/mind-blow.gif" class="center">
 
-This technique called (church encoding)[https://en.wikipedia.org/wiki/Church_encoding]. Let's me show how to create a list on three elements.
+This technique called [church encoding](https://en.wikipedia.org/wiki/Church_encoding). Let's me show how to create a list on three elements.
 
 ```js
 const three = list(1, list(2, list(3)))
