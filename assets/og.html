@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #FDF6E3;
+            color: #444;
+            font-family: 'Merriweather', serif;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 42px;
+            letter-spacing: 2px;
+            position: absolute;
+            top: calc(50% - 48px / 2);
+            left: 60px;
+            right: 60px;
+        }
+
+        .logo {
+            font-size: 32px;
+            display: flex;
+            position: relative;
+            top: 60px;
+            left: 60px;
+            align-items: center;
+        }
+
+        svg {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="logo">
+    <svg width="60" height="75" viewBox="0 0 140 150" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" fill-rule="evenodd">
+            <path fill="#50E3C2" d="M70 0l70 37.466v74.798L70 74.932z"/>
+            <path fill="#B8E986" d="M70 0L0 37.466v74.794l70-37.332z"/>
+            <text font-size="92" fill="#4A4A4A">
+                <tspan x="23" y="116">😜</tspan>
+            </text>
+            <path fill-opacity=".5" fill="#04B8DE" d="M140 37.465L70 74.929 70 149.586l70-37.333z"/>
+            <path fill-opacity=".5" fill="#1CF8B4" d="M0 37.465l70 37.46v74.67L0 112.263z"/>
+            <path fill-opacity=".4" fill="#BD10E0" d="M70 0l70 37.465L70 74.93 0 37.465z"/>
+        </g>
+    </svg>
+    Anton Medvedev
+</div>
+
+<h1></h1>
+<script>
+    function load() {
+        document.querySelector('h1').textContent = location.hash.slice(1)
+    }
+
+    if (document.readyState !== 'loading') {
+        load()
+    } else {
+        document.addEventListener('DOMContentLoaded', load)
+    }
+</script>
+</body>
+</html>

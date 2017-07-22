@@ -26,8 +26,8 @@ module Jekyll
       @base = base
       @dir = dir
       @name = name
-      @og = "#{@site.source}/assets/og.png"
-      @font = "#{@site.source}/assets/OpenSans.otf"
+      @chrome = '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+      @og = "#{@site.source}/assets/og.html"
       @content = content
     end
 
@@ -36,9 +36,12 @@ module Jekyll
       return if File.file? filepath
 
       puts "Generating #{@name}"
-      File.open(filepath, "w") do |f|
-        f.write(%x(convert #{@og} -encoding utf8 -font #{@font} -fill '#444444' -pointsize 50 -annotate +100+350 '#{split(@content)}' png:-))
-      end
+      puts %x(#{@chrome} --headless \
+                     --disable-gpu \
+                     --screenshot \
+                     --window-size=1200,630 \
+                     --hide-scrollbars 'file://#{@og}##{@content}')
+      puts %x(mv screenshot.png #{filepath})
     end
 
     def split(content)
@@ -53,11 +56,16 @@ module Jekyll
           line2 = content[max..-1]
         end
 
-        [line1, line2[0...max] + (line2.length > max ?  '...' : '')].join('\n')
+        [line1, line2[0...max] + (line2.length > max ? '...' : '')].join('\n')
       else
         content
       end
     end
+
+    def only_emoji(content)
+      content.gsub(/(\w)/, ' ')
+    end
+
   end
 
 end

@@ -38,7 +38,7 @@ layout: default
   </section>
 
   {% if page.comments_id %}
-  <section class="comments">
+  <section class="comments_disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_shortname = 'elfet';
@@ -53,5 +53,12 @@ layout: default
       })();
     </script>
   </section>
+  {% else %}
+  <script src="https://utteranc.es/client.js"
+          repo="antonmedv/medv.io"
+          branch="master"
+          issue-term="title"
+          async>
+  </script>
   {% endif %}
 </article>
