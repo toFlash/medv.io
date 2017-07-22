@@ -15,7 +15,7 @@ That's it! This is a full implementation of immutable list structure in JavaScri
 
 <img src="/assets/mind-blow.gif" class="center">
 
-Let's me show how to create a list on three elements.
+This technique called (church encoding)[https://en.wikipedia.org/wiki/Church_encoding]. Let's me show how to create a list on three elements.
 
 ```js
 const three = list(1, list(2, list(3)))
@@ -81,7 +81,7 @@ and other helpful functions. You can play with it to understand why it's working
 
 <script src="https://embed.runkit.com" async data-element-id="runkit"></script>
 
-<div id="runkit">
+<pre id="runkit">
 const {list, print, foldl, reverse} = require('@medv/list')
  
 const a = list(1, list(2, list(3)))
@@ -90,7 +90,7 @@ const b = reverse(a)
 print(a)
 print(b)
 foldl(a, 1, (x, acc) => x * acc)
-</div>
+</pre>
 
 With foldl and reverse we can implement simple foldr function. 
 
@@ -162,4 +162,5 @@ This implementation, on same benchmarks, 6 time faster. But it's not so awesome 
 
 * [@medv/list](https://github.com/antonmedv/list) — immutable list library
 * [tto](https://github.com/antonmedv/tto) — tic-tak-toe build with this library
+* [cons](https://en.wikipedia.org/wiki/Cons) — more about lisp functional programing
 
