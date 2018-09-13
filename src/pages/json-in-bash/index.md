@@ -90,5 +90,5 @@ faster? It’s because v8 faster jq, and [otto](https://github.com/robertkrimen/
 
 <p align="center">...</p>
 
-So should we abandon jq? No, of cause not. But I hope that these new tools can be useful for somebody. And they will 
+So should we abandon jq? No, of course not. But I hope that these new tools can be useful for somebody. And they will 
 find their users 👐.
