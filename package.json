@@ -23,6 +23,7 @@
     "gatsby-remark-smartypants": "next",
     "gatsby-source-filesystem": "next",
     "gatsby-source-github-api": "0.0.3",
+    "gatsby-source-google-analytics-reporting-api": "^1.0.0",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
     "lodash": "^4.17.5",
