@@ -27,7 +27,7 @@ class Layout extends React.Component {
 }
 
 const Logo = () => {
-  const emoji = ['🥝', '🧀', '🔥', '🎀', '🤩', '🌳']
+  const emoji = ['🥝', '🧀', '🔥', '🎀', '🌳']
   return (
     <svg width="40" height="50" viewBox="0 0 140 150" xmlns="http://www.w3.org/2000/svg">
       <title>Anton Medvedev</title>
