@@ -116,11 +116,15 @@ module.exports = {
     {
       resolve: `gatsby-source-google-analytics-reporting-api`,
       options: {
-        email: process.env.CLIENT_EMAIL,
-        key: require('fs').readFileSync('private.key'),
+        email: json('google-api.json').client_email,
+        key: json('google-api.json').private_key,
         viewId: `115350264`,
         startDate: `2009-01-01`,
       }
     }
   ],
+}
+
+function json(file) {
+  return JSON.parse(require('fs').readFileSync(file))
 }
