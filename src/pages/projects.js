@@ -53,7 +53,8 @@ export const pageQuery = graphql`
                 nodes {
                   name
                 }
-              }              
+              }
+              isArchived           
             }
           }
           repositories {
@@ -69,7 +70,8 @@ export const pageQuery = graphql`
                   name
                   color
                 }
-              }              
+              }
+              isArchived
             }
           }
         }

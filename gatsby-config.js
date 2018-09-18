@@ -90,6 +90,7 @@ module.exports = {
                     color
                   }
                 }
+                isArchived
               }
             }
             repositories(first: 100, orderBy: {field: STARGAZERS, direction: DESC}, isFork: false, affiliations: OWNER) {
@@ -106,6 +107,7 @@ module.exports = {
                     color
                   }
                 }
+                isArchived
               }
             }
           }
