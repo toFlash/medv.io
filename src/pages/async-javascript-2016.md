@@ -1,5 +1,5 @@
 ---
-title: Async JavaScript 2016 — Aviasales
+title: "Talk: Async JavaScript 2016 — Aviasales"
 date: 2016-03-17
 lang: ru
 ---
