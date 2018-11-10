@@ -1,7 +1,6 @@
 ---
-title: "Talk: Async JavaScript 2016 — Aviasales"
+title: "Async JavaScript — Aviasales"
 date: 2016-03-17
-lang: ru
 ---
 
 Мое выступление в Aviasales Phuket Office. Рассказываю о организации ассинхронного кода,

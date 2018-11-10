@@ -1,0 +1,26 @@
+@import "media";
+
+.about {
+  margin-top: 60px;
+  margin-bottom: 80px;
+
+  > video {
+    float: left;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+
+    @include mobile() {
+      display: block;
+      float: none;
+    }
+  }
+
+  .about-text {
+
+    @include mobile() {
+      margin-top: 20px;
+      margin-left: 0;
+    }
+  }
+}

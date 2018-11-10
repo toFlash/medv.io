@@ -354,7 +354,6 @@ header {
   }
 
   .project-link {
-    white-space: nowrap;
     margin-right: 10px;
   }
 
@@ -366,6 +365,7 @@ header {
   }
 
   .tech {
+    white-space: nowrap;
     font-size: 0.8rem;
     margin-left: 10px;
   }
@@ -478,8 +478,8 @@ img.right {
 
 .video {
   position: relative;
+  padding-top: 0;
   padding-bottom: 56.25%;
-  padding-top: 30px;
   height: 0;
   overflow: hidden;
 
