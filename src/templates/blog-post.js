@@ -6,10 +6,12 @@ import Layout from '../components/Layout'
 
 class BlogPostTemplate extends React.Component {
   render() {
+    console.log(this.props.data)
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const postUrl = get(this.props, 'data.site.siteMetadata.siteUrl') + this.props.location.pathname
     const pageViews = get(this.props, 'data.pageViews.totalCount')
+    const readingTime = get(this.props, 'data.markdownRemark.fields.readingTime.text')
     const siteDescription = post.excerpt
     const {previous, next} = this.props.pageContext
 
@@ -24,8 +26,9 @@ class BlogPostTemplate extends React.Component {
         <div className="meta">
           <div className="created-at" title="Posted at">{post.frontmatter.date}</div>
           {pageViews &&
-            <div className="page-views" title="Page views">{pageViews}</div>
+            <div className="page-views" title="Page views">{pageViews} views</div>
           }
+          <div class="reading-time" title="Reading time">{readingTime}</div>
         </div>
 
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
@@ -40,7 +43,7 @@ class BlogPostTemplate extends React.Component {
             Hi, I’m Anton. If you liked the post share it
             <span className="share-buttons">
               <a className="btn" href={`https://twitter.com/intent/tweet?text=&url=${postUrl}`}
-                 target="_blank">
+                 target="_blank" rel="noopener noreferrer">
                 <svg className="icon-twitter" width="18" height="15" viewBox="0 0 18 15"
                      xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -50,7 +53,7 @@ class BlogPostTemplate extends React.Component {
                 Tweet
               </a>
               <a className="btn" href={`http://www.facebook.com/sharer/sharer.php?u=${postUrl}`}
-                 target="_blank">
+                 target="_blank" rel="noopener noreferrer">
                 <svg className="icon-facebook" width="18" height="18" viewBox="0 0 18 18"
                      xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -114,6 +117,11 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "DD MMMM YYYY")
+      }
+      fields {
+        readingTime {
+          text
+        }
       }
     }
     pageViews(path: {eq: $slug}) {

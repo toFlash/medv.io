@@ -22,7 +22,7 @@ export default class extends React.Component {
         />
         <Link to="/list-of-available-three-letter-npm-names/">← Back to article</Link>
         <div className="npm-names">
-          🚀 Loading free npm names...
+          Loading free npm names...
         </div>
       </Layout>
     )

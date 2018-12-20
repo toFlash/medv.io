@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "eslint": "^5.10.0",
     "gatsby": "^2.0.0-rc.28",
     "gatsby-plugin-feed": "next",
     "gatsby-plugin-google-analytics": "next",
@@ -12,6 +13,7 @@
     "gatsby-remark-copy-linked-files": "^2.0.0-rc.5",
     "gatsby-remark-images": "^2.0.1-rc.5",
     "gatsby-remark-prismjs": "next",
+    "gatsby-remark-reading-time": "^1.0.1",
     "gatsby-remark-responsive-iframe": "^2.0.0-rc.5",
     "gatsby-remark-smartypants": "next",
     "gatsby-source-filesystem": "^2.0.1-rc.6",
