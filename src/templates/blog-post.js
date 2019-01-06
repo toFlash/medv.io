@@ -6,7 +6,6 @@ import Layout from '../components/Layout'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log(this.props.data)
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const postUrl = get(this.props, 'data.site.siteMetadata.siteUrl') + this.props.location.pathname
@@ -28,7 +27,7 @@ class BlogPostTemplate extends React.Component {
           {pageViews &&
             <div className="page-views" title="Page views">{pageViews} views</div>
           }
-          <div class="reading-time" title="Reading time">{readingTime}</div>
+          <div className="reading-time" title="Reading time">{readingTime}</div>
         </div>
 
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
