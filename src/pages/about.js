@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
@@ -74,10 +75,10 @@ export default About
 export const pageQuery = graphql`
   query {
     site {
-    siteMetadata {
-    title
-    description
+      siteMetadata {
+        title
+        description
+      }
+    }
   }
-  }
-  }
-  `
+`
