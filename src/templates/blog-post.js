@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 import {graphql, Link} from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/Layout'
+import NpmNames from '../play/npm-names'
+
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -31,6 +33,9 @@ class BlogPostTemplate extends React.Component {
         </div>
 
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
+
+        {/* TODO: use lazy */}
+        {postUrl.includes('list-of-available-three-letter-npm-names') && <NpmNames/>}
 
         <div className="fleuron">❦</div>
 

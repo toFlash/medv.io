@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'gatsby'
-import {Location} from '@reach/router'
 
 import '../styles/layout.scss'
 import 'prismjs/themes/prism-solarizedlight.css'
@@ -27,7 +26,6 @@ class Layout extends React.Component {
 }
 
 const Logo = () => {
-  const emoji = ['🥝', '🧀', '🔥', '🎀', '🌳']
   return (
     <svg width="40" height="50" viewBox="0 0 140 150" xmlns="http://www.w3.org/2000/svg">
       <title>Anton Medvedev</title>
@@ -35,7 +33,7 @@ const Logo = () => {
         <path fill="#50E3C2" d="M70 0l70 37.466v74.798L70 74.932z"/>
         <path fill="#B8E986" d="M70 0L0 37.466v74.794l70-37.332z"/>
         <text fontSize="92" fill="#4A4A4A">
-          <Location>{({location}) => <tspan x="23" y="116">{emoji[hash(location) % emoji.length]}</tspan>}</Location>
+          <tspan x="43" y="109">{'<'}</tspan>
         </text>
         <path fillOpacity=".5" fill="#04B8DE" d="M140 37.465L70 74.929 70 149.586l70-37.333z"/>
         <path fillOpacity=".5" fill="#1CF8B4" d="M0 37.465l70 37.46v74.67L0 112.263z"/>
