@@ -25,7 +25,7 @@ class BlogPostTemplate extends React.Component {
         <div className="meta">
           <div className="created-at" title="Posted at">{post.frontmatter.date}</div>
           {pageViews &&
-            <div className="page-views" title="Page views">{pageViews} views</div>
+          <div className="page-views" title="Page views">{pageViews} views</div>
           }
           <div className="reading-time" title="Reading time">{readingTime}</div>
         </div>

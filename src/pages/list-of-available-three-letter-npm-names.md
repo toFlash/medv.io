@@ -25,4 +25,4 @@ fnn
 After a certain about of time (about a few hours) you will get [available.txt](https://github.com/antonmedv/find-npm-name/blob/master/available.txt)
 file with all available npm packages. Send a PR to update the list.
 
-[See list of free 3-letter npm names →](all/)
+<npm-names/>
