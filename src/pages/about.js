@@ -47,7 +47,7 @@ class About extends React.Component {
             </p>
 
             <p>
-              If you are interested in hiring me, here is my <a href="">cv</a>.
+              If you are interested in hiring me, here is my <a href="/cv.pdf">cv</a>.
             </p>
 
           </div>
